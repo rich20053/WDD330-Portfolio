@@ -1,0 +1,108 @@
+body {
+  background-color: #c0f5c3;
+  color: #047526;
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: 'Fira', 'Sansita', sans-serif;
+}
+  
+footer {
+  color: yellow;
+  background-color: #047526;
+  text-align: center;
+  margin: 20px 0 0 0;
+  border: 2px solid yellow; 
+  border-radius: 15px;
+}
+
+footer a:hover {
+    color: #047526;
+    background-color: yellow;
+}
+
+footer a:active,
+footer a:visited,
+footer a:link
+{
+    color: yellow;
+    background-color: #047526;
+}
+  
+h2, h3, h4, h5, h6 {
+  font-family: 'Bree', 'Rockwell', serif;
+  color: #047526;
+}
+  
+h1 {
+  font-family: 'Bree', 'Rockwell', serif;
+  color: yellow;
+  font-size: 40px;
+  background-color: #047526;
+  margin: 0px;
+  padding: 20px;
+  border: 2px solid yellow; 
+  border-radius: 15px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+h2 {
+  font-size: 25px;
+  margin: 15px;
+}
+  
+main {
+    margin: 10px 0 0 0;
+}
+
+nav ul {
+  border-bottom: 5px double;
+  border-top: 5px double;
+  padding: 15px;
+  margin: 0;
+}
+
+nav li {
+  font-size: 1.5em;
+  margin: 0 0 0 25px;
+}
+  
+nav a:hover {
+  color: #047526;
+  background-color: yellow;
+}
+  
+.placeholder {
+    margin: 25px;
+}
+  
+#myphoto{
+    width: 20%;
+    float: left;
+    /* display: inline-block; */
+    margin: 15px;
+}
+  
+@media screen and (max-width: 650px) { 
+/* beginning of media query */
+footer {
+  font-size: .85em;
+}
+
+h1 {
+  font-size: 35px;
+}
+  
+h2 {
+  font-size: 20px;
+}
+
+nav li {
+  font-size: .85em;
+}  
+ 
+  /* end of media query */ 
+} 
+  

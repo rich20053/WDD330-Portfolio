@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number Reverse</title>
+        <script>
+            function reverseStr(number) {
+                let new_number = "";
+                for (i=number.length; i>0; i--) {
+                    new_number += number[i-1]; 
+                }
+                return(new_number);
+            }
+
+            function displayNewNumber() {
+                var inNbr = document.getElementById("inputNbr").value;
+                outNbr = reverseStr(inNbr);
+                document.getElementById("outputNbr").innerHTML = outNbr;
+            }
+
+        </script>
+        <style>
+            #outputNbr {
+                display: inline;
+            }
+            button {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Reverse Number</h1>
+        Your Number: <input id="inputNbr"> </input><br>
+        Your Number Reversed: <p id="outputNbr"></p>
+        <button onclick="displayNewNumber()">Reverse Number</button>
+
+    </body>
+</html>

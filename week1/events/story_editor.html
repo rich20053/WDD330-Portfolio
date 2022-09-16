@@ -2,7 +2,10 @@
 <html>
     <head>
         <title>Story Writer</title>
-        <script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+            <script>
             function loadStory() {
                 var storyName = document.getElementById("name_input").value;
                 var storyHTML = localStorage.getItem(storyName);
@@ -23,7 +26,7 @@
         </script>
         <style>
             textarea{
-                width: 800px;
+                width: 650px;
                 height: 250px;
                 background-color: lightyellow;
             }
@@ -49,5 +52,13 @@
         <textarea id="story_editor" placeholder="Write a totally awesome story here.">
         </textarea> 
         <section id="story_display"></section>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 1</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/main.js"></script>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+      
     </body>
 </html>

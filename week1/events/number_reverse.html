@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
         <title>Number Reverse</title>
         <script>
             function reverseStr(number) {
+	            number = number + "";
+	            return number.split("").reverse().join("");
+                /* Alternate method
                 let new_number = "";
                 for (i=number.length; i>0; i--) {
                     new_number += number[i-1]; 
                 }
-                return(new_number);
+                return(new_number);*/
             }
 
             function displayNewNumber() {
@@ -26,6 +32,9 @@
                 display: block;
                 margin: 10px;
             }
+            input {
+                margin: 10px;
+            }
         </style>
     </head>
     <body>
@@ -34,5 +43,12 @@
         <button onclick="displayNewNumber()">Reverse Number</button>
         Your Number Reversed: <p id="outputNbr"></p>
 
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 1</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/main.js"></script>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
     </body>
 </html>

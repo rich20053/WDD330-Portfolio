@@ -1,0 +1,12 @@
+button {
+    display: block;
+    margin: 10px;
+}
+
+#printfooter, #printh1 {
+    border: 2px solid #047526; 
+}
+
+div p {
+    display: inline;
+}

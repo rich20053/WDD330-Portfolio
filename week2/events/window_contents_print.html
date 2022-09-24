@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Print Window Contents</title>
+        <script>
+            function printWindow() {
+                window.print();
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="printh1">Print Screen</h1>
+        <p>This will print the current screen.</p>
+        <button onclick="printWindow()">Print</button>
+        <footer id="printfooter">
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 2</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

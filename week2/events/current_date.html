@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+        <title>Display Today's Date</title>
+        <script>
+            function displayTodaysDate() {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                var yyyy = today.getFullYear();
+                dmdDate = mm+"-"+dd+"-"+yyyy;
+                smdDate = mm+"/"+dd+"/"+yyyy;
+                ddmDate = dd+"-"+mm+"-"+yyyy;
+                sdmDate = dd+"/"+mm+"/"+yyyy;
+                document.getElementById("dashMD").innerHTML = dmdDate;
+                document.getElementById("slashMD").innerHTML = smdDate;
+                document.getElementById("dashDM").innerHTML = ddmDate;
+                document.getElementById("slashDM").innerHTML = sdmDate;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Display Today's Date</h1>
+        <button onclick="displayTodaysDate()">Display Date</button>
+        <div>
+            <p>mm-dd-yyyy</p> <p id="dashMD"></p>
+        </div>
+        <div>
+            <p>mm/dd/yyyy</p> <p id="slashMD"></p>
+        </div>
+        <div>
+            <p>dd-mm-yyyy</p> <p id="dashDM"></p>
+        </div>
+        <div>
+            <p>dd/mm/yyyy</p> <p id="slashDM"></p>
+        </div>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 2</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

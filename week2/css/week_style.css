@@ -3,6 +3,10 @@ button {
     margin: 10px;
 }
 
+section button {
+    display: inline;
+}
+
 #printfooter, #printh1 {
     border: 2px solid #047526; 
 }

@@ -1,0 +1,16 @@
+button {
+    display: block;
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+div {
+    display: inline;
+}
+
+.group {
+    display: block;
+}

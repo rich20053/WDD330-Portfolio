@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Count Vowels</title>
+        <script>
+            function countVowels() {
+                var count = 0;
+                var inputStr = document.getElementById("input").value;
+                const countStr = [...inputStr];
+                for (i=0;i<countStr.length;i++){
+                    if (countStr[i] == 'a' || countStr[i] == 'A' ||
+                        countStr[i] == 'e' || countStr[i] == 'E' ||
+                        countStr[i] == 'i' || countStr[i] == 'I' ||
+                        countStr[i] == 'o' || countStr[i] == 'O' ||
+                        countStr[i] == 'u' || countStr[i] == 'U' ||
+                        countStr[i] == 'y' || countStr[i] == 'Y') {
+                            count++;
+                        }
+                }
+                document.getElementById("vowelCount").innerHTML = count;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>How many vowels?</h1>
+        Enter Words To Be Checked: <input id="input"> </input><br>
+        <button onclick="countVowels()">Count Vowels</button>
+        Number of Vowels: <div id="vowelCount"></div>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 3</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

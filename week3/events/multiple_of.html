@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" /> 
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Multiple of 3 or 7</title>
+        <script>
+            function checkMultiple() {
+                var inputValue = document.getElementById("input").value; 
+                var inputNumber = parseInt(inputValue);
+                document.getElementById("of3").innerHTML = (inputNumber%3==0);
+                document.getElementById("of7").innerHTML = (inputNumber%7==0);
+            }
+        </script>
+
+    </head>
+    <body>
+        <h1>Multiple of 3 or 7?</h1>
+        Enter Number To Be Checked: <input id="input"> </input><br>
+        <button onclick="checkMultiple()">Check</button>
+        <div class="group">
+            Multiple of 3? <div id="of3"></div>
+        </div>
+        <div class="group">
+            Multiple of 7? <div id="of7"></div>
+        </div>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 3</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+
+    </body>
+</html>

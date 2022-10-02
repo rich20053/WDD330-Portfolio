@@ -3,6 +3,11 @@ button {
     margin: 10px;
 }
 
+.teamactivity button {
+    display: inline;
+    margin: 5px;
+}
+
 input {
     margin: 10px;
 }
@@ -13,4 +18,8 @@ div {
 
 .group {
     display: block;
+}
+
+div p {
+    margin-left: 35px;
 }

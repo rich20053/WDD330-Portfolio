@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪💪</title>
+  <link rel="stylesheet" href="../../css/style.css" /> 
+  <link rel="stylesheet" href="../css/week_style.css" />
+</head>
+<body class="teamactivity">
+  <h1>Team Activity Week 3 Part 2</h1>
+  <!-- Exercise #1 - is at least one person 19 or older? -->
+  <button onclick="check19()">Is 1+ person 19+</button>
+  <!-- Exercise #2 - is everyone 19 or older? -->
+  <button onclick="all19()">Are all 19+</button>
+  <!-- Exercise #3 - find the comment with the ID of 823423 -->
+  <button onclick="FindId()">Find Id = 823423</button>
+  <!-- Exercise #4 - delete the comment with the ID of 823423 -->
+  <button onclick="DeleteId()">Delete Id = 823423</button>
+  <br>
+  <div id="output">
+  </div>
+</body>
+<footer>
+  <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 3</a>| <a href="../../index.html">Home</a></p>
+  <p id="datemodified"></p><br>
+  </footer>
+<script src="../../javascript/this-year.js"></script>
+ <script src="../../javascript/last-modified.js"></script>
+<script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    // Button functions
+    function check19() {
+      // Some and Every Checks
+      // Array.prototype.some() // is at least one person 19 or older?
+      displayArray(get19, dispBoolean);
+    }
+
+    function all19() {
+      // Some and Every Checks
+      // Array.prototype.every() // is everyone 19 or older?
+      displayArray(getAll19, dispBoolean);
+    }
+
+    function FindId() {
+      // Array.prototype.find()
+      // Find is like filter, but instead returns just the one you are looking for
+      // find the comment with the ID of 823423
+      displayArray(getId, dispItem);
+    }
+
+    function DeleteId() {
+      // Array.prototype.findIndex()
+      // Find the comment with this ID
+      // delete the comment with the ID of 823423
+      displayArray(getId, dispRemaining);
+    }
+
+    // Get callback functions
+    function get19() {
+      var is19 = false;
+      for(var i=0; i<people.length; i++) {
+        is19 = is19 || ((2022 - people[i].year) >= 19);
+      };  
+      return is19;
+    }
+
+    function getAll19() {
+        var isAll19 = true;
+        for(var i=0; i<people.length; i++) {
+          isAll19 = isAll19 && ((2022 - people[i].year) >= 19);
+        };  
+        return isAll19;
+    }
+
+    function getId() {
+      const selectedComment = comments.filter((comment) => { return (comment.id == 823423) });
+      return selectedComment;
+    }
+
+    // Display callback functions
+    function dispBoolean(yesno) {
+        var itemStr = "Answer: ";
+        var answer = yesno ? "Yes" : "No";
+        itemStr += answer;
+        document.getElementById("output").innerHTML = itemStr;
+    } 
+
+    function dispItem(itemList) {
+        var itemStr = "";
+        if (itemList.length == 0) {
+          itemStr += "Item not found."
+        }
+        else {
+          itemStr += `${itemList[0].text}: ${itemList[0].id}`;
+        }
+        document.getElementById("output").innerHTML = itemStr;
+    }
+
+    function dispRemaining(itemList) {
+        var itemStr = "<div>List Before:</div>";
+        if (itemList.length == 0) {
+          itemStr = "Item not found."
+        }
+        else {
+          for (var i=0; i<comments.length; i++) {
+            itemStr += `<p>${comments[i].text}: ${comments[i].id}</p>`;
+          }
+          document.getElementById("output").innerHTML = itemStr;
+          delete comments[comments.indexOf(itemList[0])];
+          itemStr += "<div>List After:</div>";
+          for (var i=0; i<comments.length; i++) {
+            if (comments[i]!=null)
+              itemStr += `<p>${comments[i].text}: ${comments[i].id}</p>`;
+          }
+          
+        }
+        document.getElementById("output").innerHTML = itemStr;
+    }
+
+    // Execution Function
+    function displayArray(arrayFunction, displayFunction) {
+        const dispArray = arrayFunction();
+        displayFunction(dispArray);
+    }
+
+  </script>
+</html>

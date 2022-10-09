@@ -1,0 +1,92 @@
+#board {
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 5;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top {
+    grid-row: 1 / 2;
+}
+
+.middle {
+    grid-row: 2 / 3;
+}
+
+.bottom {
+    grid-row: 3 / 4;
+    color
+}
+
+.left {
+    grid-column: 1 / 2;
+}
+
+.center{
+    grid-column: 2 / 3;
+}
+
+.right {
+    grid-column: 3 / 4;
+}
+
+.top, .bottom, .middle {
+    height: 150px;
+    border: 3px solid yellow;
+}
+
+.left, .center, .right {
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+section div {
+    font-size: 120px;
+    background-color: #047526;
+    color: yellow;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+h3 {
+    grid-column: 1/4;
+    grid-row: 4/5;
+    text-align: center;
+}
+
+button {
+    grid-column: 2/3;
+    grid-row: 5/6;
+    background-color: #047526;
+    color: yellow;
+    border: 3px solid yellow;
+    padding: 5px;
+    margin: 2px;
+}
+
+.top {
+    border-top: none;
+}
+
+.bottom {
+    border-bottom: none;
+}
+
+.right {
+    border-right: none;
+}
+
+.left {
+    border-left: none;
+}
+
+#sortedList, #substringList {
+    display: inline;
+}

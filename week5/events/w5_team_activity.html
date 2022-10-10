@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/week_style.css" />
 </head>
   <body class="teamactivity">
-    <h1>Team Activity Week 4</h1>
+    <h1>Team Activity Week 5</h1>
     <h2>Tic Tac Toe</h2>
     <!-- Tic Tac Toe Board -->
     <section id="board">
@@ -20,7 +20,7 @@
         <div id="bl" class="square bottom left"></div>
         <div id="bc" class="square bottom center"></div>
         <div id="br" class="square bottom right"></div>
-        <h2 id="winner">Have fun!</h2>
+        <h3 id="winner">Have fun!</h3>
         <button onclick="location.reload()">Reset Game</button>
     </section>
 </body>
@@ -111,7 +111,7 @@
                 game_over = true;
                 document.getElementById("winner").innerHTML = winner + " wins the game!";            
             }
-            if (full && !game_over)  {
+            if (full)  {
                 game_over = true;
                 document.getElementById("winner").innerHTML = "It's a tie!";
             }

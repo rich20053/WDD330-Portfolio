@@ -38,9 +38,9 @@ const hikeList = [
 
 Object.prototype.renderThisHike = function(item) 
 {
-  imgBasePath = '//byui-cit.github.io/cit261/examples/';
+  //imgBasePath = '//byui-cit.github.io/cit261/examples/';
   item.innerHTML = ` <h2>${this.name}</h2>
-  <div class="image"><img src="${imgBasePath}${this.imgSrc}" alt="${this.imgAlt}"></div>
+  <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
   <div>
           <div>
               <h3>Distance</h3>
@@ -75,7 +75,7 @@ class HikeModel {
 class HikesView {
     constructor(listElementId) {
         // will need this
-        this.imgBasePath = '//byui-cit.github.io/cit261/examples/';
+        //this.imgBasePath = '//byui-cit.github.io/cit261/examples/';
     }
 
     renderOneHikeLight(hike) {
@@ -90,10 +90,9 @@ class HikesView {
         for (var i=0; i<hikeList.length; i++) {
             const hike = hikeList[i];
             const renderItem = this.renderOneHikeLight(hike);
-            console.log(``);
-            hike => listElement.appendChild(renderItem);
-            console.log(hike.name);
-            console.log(listElement);
+            console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
+            listElement.appendChild(renderItem);
+            console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
         }
     }
 

@@ -1,8 +1,7 @@
-body {
+  body {
+    border: 5px solid rgb(74, 74, 74);
     margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;  
   }
 
   img {
@@ -12,29 +11,48 @@ body {
 
   .image {
     max-width: 50%;
-    padding: 0px 30px 0px 0px;
+    padding: 25px;
   }
 
   h1 {
-    background-color: darkslategrey;
-    color: bisque;
+    background-color: rgb(7, 144, 144);
+    color: rgb(58, 3, 100);
     display: block;
     text-align: center;
+    margin: 0;
+    padding: 50px;
+    font-size: 70px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
   }
 
   h2 {
-    background-color: grey;
+    border: 3px solid black;
+    background-color: rgb(106, 233, 233);
     color: black;
     display: block;
     text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-family: sans-serif;
   }
 
   ul {
     list-style: none;
     margin: 0px;
+    padding: 0px;
   }
 
-  .hikeBox {
+  .one-hike {
     display: flex;
     flex-direction: row;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    font-family: sans-serif;
   }

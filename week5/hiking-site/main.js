@@ -38,10 +38,11 @@ const hikeList = [
 
 Object.prototype.renderThisHike = function(item) 
 {
-  //imgBasePath = '//byui-cit.github.io/cit261/examples/';
+
   item.innerHTML = ` <h2>${this.name}</h2>
+  <div class="one-hike">
   <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
-  <div>
+  <div class="info">
           <div>
               <h3>Distance</h3>
               <p>${this.distance}</p>

@@ -38,6 +38,7 @@ const hikeList = [
 
 Object.prototype.renderThisHike = function(item) 
 {
+  imgBasePath = '//byui-cit.github.io/cit261/examples/';
   item.innerHTML = ` <h2>${this.name}</h2>
   <div class="image"><img src="${imgBasePath}${this.imgSrc}" alt="${this.imgAlt}"></div>
   <div>
@@ -50,7 +51,7 @@ Object.prototype.renderThisHike = function(item)
               <p>${this.difficulty}</p>
           </div>
   </div>`;
-  console.log(item.innerHTML);
+  //console.log(item.innerHTML);
   return item;
 }
 
@@ -80,17 +81,17 @@ class HikesView {
     renderOneHikeLight(hike) {
         // this method will be used to create the list of hikes with less detail: name, image, distance, difficulty 
         const item = document.createElement("li");
-        console.log(item);
-        return hike.renderThisHike(item);
+        const hikeItem = hike.renderThisHike(item);
+        return hikeItem;
     }
     
     renderHikeList(hikeList, listElement) {
         // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
-        console.log(hikeList);
         for (var i=0; i<hikeList.length; i++) {
             const hike = hikeList[i];
-            hike => listElement.appendChild(self.renderOneHikeLight(hike));
-            self.renderOneHikeLight(hike);
+            const renderItem = this.renderOneHikeLight(hike);
+            console.log(``);
+            hike => listElement.appendChild(renderItem);
             console.log(hike.name);
             console.log(listElement);
         }
@@ -105,9 +106,7 @@ class HikesView {
 // Hike controller
 class HikesController {
     constructor(parentId) {
-        console.log(parentId);
       this.parentElement = document.getElementById(parentId); 
-      console.log(this.parentElement);
       // this is how our controller will know about the model and view...we add them right into the class as members.
       this.hikeModel = new HikeModel();
       this.hikesView = new HikesView(parentId);
@@ -116,7 +115,7 @@ class HikesController {
     showHikeList() {
       //  this will get called each time we need to display our full hike list. It should grab the list of hikes from the Model, and then send them to the view.
       const hList = this.hikeModel.getAllHikes();
-      console.log(this.parentElement);
+      //console.log(this.parentElement);
       this.hikesView.renderHikeList(hList, this.parentElement);
     }
   

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Show Object properties</title>
+        <script>
+            var student = {
+                name : "David Ray",
+                grade : "Senior",
+                school : "West High School",
+                rollno : 12,
+                gpa : 3.45
+            };
+            function showObjectProperties() {
+                'use strict';
+                var keys = [];
+                for (var key in student) 
+                    keys.push(key);
+                document.getElementById("objProperties").innerHTML = keys.toString();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Show Object Properties</h1>
+        <p>Click to show object properties</p>
+        <button onclick="showObjectProperties()">Show Properties</button><br>
+        <p>Object Properties: </p>
+        <div id="objProperties"></div>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 5</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

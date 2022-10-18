@@ -12,13 +12,13 @@
         <section id="tdHead">
           <h1>To Dos</h1>
         </section>
-        <section id="taskList">
-          <div class="listItem">
+        <ul id="taskList">
+          <li class="listItem">
             <input type="checkbox">
-            <p>Task #1 - finish code</p>
+            <label>Task #1 - finish code</label>
             <button onclick="deleteIt()">X</button>
-          </div>
-        </section>
+          </li>
+        </ul>
         <section id="listFooter">
           <div id="itemCount">0 Tasks Left</div>
           <button onclick="showAll()">All</button>
@@ -31,6 +31,7 @@
         </section>
       </div>
     </main>
+    <script src="./javascript/ToDos.js"></script>
 <!--<footer>
       <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 6</a>| <a href="../../index.html">Home</a></p>
       <p id="datemodified"></p><br>

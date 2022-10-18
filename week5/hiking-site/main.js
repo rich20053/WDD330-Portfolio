@@ -42,7 +42,7 @@ Object.prototype.renderThisHike = function(item)
   item.innerHTML = ` <h2>${this.name}</h2>
   <div class="one-hike">
   <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
-  <div class="info">
+  <div id="info-${this.name}">
           <div>
               <h3>Distance</h3>
               <p>${this.distance}</p>
@@ -56,6 +56,34 @@ Object.prototype.renderThisHike = function(item)
   return item;
 }
 
+Object.prototype.renderThisHikeOnly = function(item) 
+{
+  item.innerHTML = `<h2>${this.name}</h2>
+  <div class="one-hike">
+    <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
+    <div id="info-${this.name}">
+      <div>
+        <h3>Distance</h3>
+        <p>${this.distance}</p>
+    </div>
+    <div>
+        <h3>Difficulty</h3>
+        <p>${this.difficulty}</p>
+    </div>
+    <div>
+        <h3>Description</h3>
+        <p>${this.description}</p>
+    </div>
+    <div>
+        <h3>Directions</h3>
+        <p>${this.directions}</p>
+    </div>
+  </div>`;
+  //console.log(item.innerHTML);
+  return item;
+}
+
+
 // Hike Model
 class HikeModel {
   constructor() {
@@ -65,9 +93,10 @@ class HikeModel {
     // should return a list of all the hikes.
     return hikeList;
   }
-  getHikeByName(hikeName) {
+
+  getHikeByName(hikeNbr) {
     // filter the hikes for the record identified by hikeName and return it
-    let hike = hikeList.filter(oneHike => oneHike.name = hikeName);
+    let hike = hikeList[hikeNbr];
     return hike;
   }
 }
@@ -91,14 +120,17 @@ class HikesView {
         for (var i=0; i<hikeList.length; i++) {
             const hike = hikeList[i];
             const renderItem = this.renderOneHikeLight(hike);
-            console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
+            //console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
             listElement.appendChild(renderItem);
-            console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
+            //console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
         }
     }
 
-    renderOneHikeFull(hike, parentElement) {
+    renderOneHikeFull(hike, listElement) {
         // this method will be used to one hike with full detail...you will need this for the stretch goal! 
+        const item = document.createElement("li");
+        const hikeItem = hike.renderThisHikeOnly(item);
+        listElement.appendChild(hikeItem);
     }
 }
   
@@ -110,6 +142,7 @@ class HikesController {
       // this is how our controller will know about the model and view...we add them right into the class as members.
       this.hikeModel = new HikeModel();
       this.hikesView = new HikesView(parentId);
+      //this.addHikeListener();
     }
     
     showHikeList() {
@@ -119,17 +152,30 @@ class HikesController {
       this.hikesView.renderHikeList(hList, this.parentElement);
     }
   
-    showOneHike(hikeName) {
+    showOneHike(hikeNbr, listElement) {
       // use this when you need to show just one hike...with full details
-      const oneHike = this.hikeModel.getHikeByName(hikeName);
-      this.hikesView.renderOneHikeFull(oneHike, this.parentElement);
+      const oneHike = this.hikeModel.getHikeByName(hikeNbr);
+      this.hikesView.renderOneHikeFull(oneHike, listElement);
     }
-    
+
     addHikeListener() {
-      // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
-     
+        // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
+        const hLList = document.getElementsByTagName('li');
+        for (var i=0; i<hLList.length; i++) {
+            hLList[i].addEventListener('touchend', () => 
+                this.showOneHike(i), this.parentElement);
+            hLList[i].addEventListener('click', () => 
+                this.showOneHike(i), this.parentElement);
+        }
     }
 }
 
 const hikesCtrl = new HikesController("hikeList"); 
-hikesCtrl.showHikeList();
+window.addEventListener('load', () => {
+    hikesCtrl.showHikeList();
+    hikesCtrl.addHikeListener();
+});
+
+
+
+

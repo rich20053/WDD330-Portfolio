@@ -1,0 +1,78 @@
+body {
+    background-color: lavender;
+}
+
+main {
+    background-color: lightblue;
+    max-width: 600px;
+    margin: auto;
+}
+
+#app {
+    background-color: blue;
+    border: 3px solid yellow;
+    width: 300px;
+    margin: auto;
+}
+
+p, h1, h2, h3, h4, div {
+    color: yellow;
+}
+
+h1, h2, h3, h4 {
+    font-family: serif;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+#listFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#itemCount {
+    margin: auto;
+}
+
+#addItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid yellow;
+}
+
+.listItem input,
+.listItem p,
+.listItem button
+{
+    font-size: 1.5em;
+}
+
+.listItem p, 
+.listItem button 
+{
+    margin: 3px;
+}
+
+.listItem button {
+    background-color: blue;
+    border: 3px solid yellow;
+    color: yellow;
+    font-size: 1em;
+}
+

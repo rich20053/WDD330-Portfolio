@@ -7,11 +7,11 @@
     }
   renderHikeList(hikeList, listElement) {
     // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
-    hikeList.forEach(hike => {
-        listElement.appendChild(renderOneHike(hike));
-    });
-  
+    for (var i=0; i<hikeList.length; i++) {
+        listElement.appendChild(this.renderOneHikeLight(hikeList[i]));
+    };
   }
+
   renderOneHikeLight(hike) {
     // this method will be used to create the list of hikes with less detail: name, image, distance, difficulty 
     const item = document.createElement("li");

@@ -68,6 +68,10 @@ h1 {
     width: 250px;
 }
 
+.listItem .complete {
+    text-decoration: line-through;
+}
+
 .listItem button {
     background-color: blue;
     border: 3px solid blue;

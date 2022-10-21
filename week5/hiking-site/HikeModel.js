@@ -38,7 +38,7 @@ const hikeList = [
 Object.prototype.renderThisHike = function(item) 
 {
   item.innerHTML = ` <h2>${this.name}</h2>
-  <div class="image"><img src="${imgBasePath}${this.imgSrc}" alt="${this.imgAlt}"></div>
+  <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
   <div>
           <div>
               <h3>Distance</h3>

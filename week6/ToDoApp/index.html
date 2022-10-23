@@ -9,8 +9,11 @@
   <body>
     <main>
       <div id="app">
-        <section id="tdHead">
-          <h1>To Dos</h1>
+        <section>
+          <div id="tdHead">
+            <h1>To Dos</h1>
+            <h4 id="subhead">All Tasks</h4>  
+          </div>
         </section>
         <ul id="taskList">
           <li class="listItem">
@@ -24,18 +27,11 @@
           <button onclick="showCompleted()">Completed</button>
         </section>
         <section id="addItem">
-          <input id="newItem">
+          <input id="newItem" placeholder="Enter Task Here">
           <button onclick="addIt()">+</button>
         </section>
       </div>
     </main>
     <script src="./javascript/ToDos.js"></script>
-<!--<footer>
-      <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 6</a>| <a href="../../index.html">Home</a></p>
-      <p id="datemodified"></p><br>
-    </footer> 
-    <script src="../javascript/main.js"></script>
-    <script src="../javascript/this-year.js"></script>
-    <script src="../javascript/last-modified.js"></script> -->
   </body>
 </html>

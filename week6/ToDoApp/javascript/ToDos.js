@@ -3,7 +3,6 @@ let displayFilter = "All";
 class Task {
     constructor(taskName, id, complete = false) {
         this.tName = taskName;
-        //console.log(taskName);
         if (id == "") {
             this.id = Date.now();
         }
@@ -25,8 +24,8 @@ class Task {
         checkBox.checked = this.complete;
         item.append(checkBox);
         checkBox.addEventListener('click', () => {
-            //NewTaskInput.focus();
-            //NewTaskInput.value = "";
+            NewTaskInput.focus();
+            NewTaskInput.value = "";
             this.complete = !this.complete;
             myTDList.displayList();
         })
@@ -40,9 +39,9 @@ class Task {
         delButton.textContent = "❌";
         delButton.addEventListener('click', () => {
             taskUL.removeChild(item);
-            //NewTaskInput.focus();
-            //NewTaskInput.value = "";
-            removeTask(this.tName);
+            NewTaskInput.focus();
+            NewTaskInput.value = "";
+            removeTask(this.id);
             myTDList.displayList();
         })
         item.append(delButton);
@@ -57,75 +56,49 @@ class Task {
 class TaskList {
     constructor() {
         this.tdList = new Array();
-        console.log(this.tdList);
         var myJSON = JSON.parse(window.localStorage.getItem('mytdlist'));
-        if (myJSON != "") {
+        if (myJSON != "" && myJSON != null) {
             for (var i=0; i<myJSON.length; i++) {
-                console.log(myJSON[i]);
-                var jsComplete = myJSON[i].complete; // == 'true' ? true : false;
-                //debugger;
+                var jsComplete = myJSON[i].complete;
                 var storedItem = new Task(myJSON[i].tName,myJSON[i].id, jsComplete);
                 this.tdList.push(storedItem);
             }
         }
-        console.log(this.tdList);
         this.displayList();
-        //debugger;
     }
 
     addTask (task) {
-        console.log("addTask");
-        console.log(task.tName);
-        console.log(this.tdList);
         this.tdList.push(task);
     }
 
-    deleteTask (taskName) {
-        //debugger;
+    deleteTask (taskID) {
         var i=0;
         for(i=0; i<this.tdList.length; i++) {
-            console.log(`delete ${i} ${taskName} ${this.tdList[i].name}`);
-            if (this.tdList[i].tName == taskName) {
-                delete this.tdList[i];
+            if (this.tdList[i].id == taskID) {
+                delete this.tdList[i];                
                 break;
             }
         }
         if (i < this.tdList.length - 1) {
             this.tdList = this.tdList.slice(0,i).concat(this.tdList.slice(i+1));
         }
-        console.log(this.tdList);
-    }
-
-    completeTask (taskName) {
-        //debugger;
-        var i=0;
-        for(i=0; i<this.tdList.length; i++) {
-            console.log(`complete ${i} ${taskName} ${this.tdList[i].name}`);
-            if (this.tdList[i].tName == taskName) {
-                this.tdList[i].complete;
-                break;
-            }
+        if (i == this.tdList.length - 1) {
+            this.tdList.pop();
         }
-        console.log(this.tdList);
     }
 
     displayList () {
         var tasksRemaining = 0;
         var screenList = document.querySelector("ul");
-        console.log("display List");
         var child = screenList.lastElementChild; 
         while (child) {
             screenList.removeChild(child);
             child = screenList.lastElementChild;
         }
-        //debugger;
         var listCount = 0;
         if (this.tdList.length != 0 && this.tdList[0] != undefined) {
             for (var i=0; i<this.tdList.length; i++) {
-                //debugger;
-                console.log(this.tdList[i]);
                 if (!undefined) {
-                    //debugger;
                     if ((displayFilter == "All") ||
                         (displayFilter == "Active" && !this.tdList[i].complete) ||
                         (displayFilter == "Complete" && this.tdList[i].complete)) {
@@ -150,10 +123,10 @@ class TaskList {
         const NewTaskInput = document.querySelector('#newItem');
         NewTaskInput.focus();
         NewTaskInput.value = ""; 
-        //debugger;
         var myJSON = JSON.stringify(this.tdList);   
         window.localStorage.setItem('mytdlist', myJSON);
-        console.log(myJSON);
+        console.log(window.localStorage.getItem('mytdlist'));
+        console.log(this.tdList);
     }
 }
 
@@ -168,26 +141,26 @@ function addIt() {
     }
 }
 
-function removeTask(taskName) {
-    myTDList.deleteTask(taskName);
-    //myTDList.displayList();
+function removeTask(taskId) {
+    myTDList.deleteTask(taskId);
+    myTDList.displayList();
 }
 
 function showActive() {
-    //debugger;
     displayFilter = "Active";
+    document.getElementById("subhead").textContent = "Active Tasks";
     myTDList.displayList();
 }
 
 function showCompleted() {
-    //debugger;
     displayFilter = "Complete";
+    document.getElementById("subhead").textContent = "Completed Tasks";
     myTDList.displayList();
 }
 
 function showAll() {
-    //debugger;
     displayFilter = "All";
+    document.getElementById("subhead").textContent = "All Tasks";
     myTDList.displayList();
 }
 

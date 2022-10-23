@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <link rel="stylesheet" href="./css/todo-styles.css" />
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <section>
+          <div id="tdHead">
+            <h1>To Dos</h1>
+            <h4 id="subhead">All Tasks</h4>  
+          </div>
+        </section>
+        <ul id="taskList">
+          <li class="listItem">
+            <label>No Tasks</label>
+          </li>
+        </ul>
+        <section id="listFooter">
+          <div id="itemCount">0 Tasks Left</div>
+          <button onclick="showAll()">All</button>
+          <button onclick="showActive()">Active</button>
+          <button onclick="showCompleted()">Completed</button>
+        </section>
+        <section id="addItem">
+          <input id="newItem" placeholder="Enter Task Here">
+          <button onclick="addIt()">+</button>
+        </section>
+      </div>
+    </main>
+    <script src="./javascript/main.js" type="module"></script>
+  </body>
+</html>

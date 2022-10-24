@@ -30,8 +30,6 @@ class Task {
         item.append(checkBox);
         // Listener attached to the checkbox to change display and task completion value
         checkBox.addEventListener('click', () => {
-            NewTaskInput.focus();
-            NewTaskInput.value = "";
             this.complete = !this.complete;
             myTDList.displayList();
         })
@@ -163,12 +161,16 @@ const myTDList = new TaskList();
 // Global functions that are triggered by buttons
 // Add Button
 function addIt() {
-    var taskName = document.getElementById("newItem").value; 
+    var NewTaskInput = document.querySelector('#newItem');
+    var taskName = NewTaskInput.value; 
     if (taskName != "") {
         const thisTask = new Task(taskName, "", "");
         myTDList.addTask(thisTask);
         myTDList.displayList();
     }
+    var NewTaskInput = document.querySelector('#newItem');
+    NewTaskInput.focus();
+    NewTaskInput.value = "";
 }
 
 // Delete Button

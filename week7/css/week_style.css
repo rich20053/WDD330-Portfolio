@@ -1,0 +1,25 @@
+button {
+    background-color: #047526;
+    color: yellow;
+    border: 3px solid yellow;
+    padding: 5px;
+    margin: 10px;
+    display: inline;
+}
+
+p {
+    display: inline;
+    margin: 10px;
+} 
+
+div {
+    display: block;
+}
+
+div p {
+    text-align: left;
+}
+
+#evalEveryOut {
+    display: inline;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" /> 
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Sort Objects</title>
+        <script>
+            'use strict';
+            window.addEventListener("load", () => {
+                library.displayObj();
+            });
+  
+            var library = [ 
+                   {
+                        title:  'The Road Ahead',
+                        author: 'Bill Gates',
+                        libraryID: 1254
+                    },
+                    {
+                        title: 'Walter Isaacson',
+                        author: 'Steve Jobs',
+                        libraryID: 4264
+                    },
+                    {
+                        title: 'Outliers',
+                        author: 'Malchom Gladwell',
+                        libraryID: 2322
+                    },
+                    {
+                        title: 'John Adams',
+                        author: 'David McCullough',
+                        libraryID: 1003
+                    },
+                    {
+                        title: 'Mockingjay: The Final Book of The Hunger Games',
+                        author: 'Suzanne Collins',
+                        libraryID: 3245
+                    }];
+
+            Array.prototype.displayObj = function() 
+            {
+                var outputStr = "";
+                for (var n = 0; n < this.length; n++) 
+                {
+                    outputStr += `${n+1}. ${this[n].title} - ${this[n].author} - ${this[n].libraryID}<br>`;
+                    document.getElementById("postSort").innerHTML = outputStr;
+                }
+            };
+
+            Array.prototype.bubbleSortObjAuthor = function() 
+            {
+                var is_sorted = false;
+                while (!is_sorted) 
+                {
+                    is_sorted = true;
+                    for (var n = 0; n < this.length - 1; n++) 
+                    {
+                        if (this[n].author > this[n+1].author){
+                            var x = this[n+1];
+                            this[n+1] = this[n];
+                            this[n] = x;
+                            is_sorted = false;
+                        }
+                    }
+                }
+            };
+
+            Array.prototype.bubbleSortObjTitle = function() 
+            {
+                var is_sorted = false;
+                while (!is_sorted) 
+                {
+                    is_sorted = true;
+                    for (var n = 0; n < this.length - 1; n++) 
+                    {
+                        if (this[n].title > this[n+1].title){
+                            var x = this[n+1];
+                            this[n+1] = this[n];
+                            this[n] = x;
+                            is_sorted = false;
+                        }
+                    }
+                }
+            };
+
+            Array.prototype.bubbleSortObjLibraryID = function() 
+            {
+                var is_sorted = false;
+                while (!is_sorted) 
+                {
+                    is_sorted = true;
+                    for (var n = 0; n < this.length - 1; n++) 
+                    {
+                        if (this[n].libraryID > this[n+1].libraryID){
+                            var x = this[n+1];
+                            this[n+1] = this[n];
+                            this[n] = x;
+                            is_sorted = false;
+                        }
+                    }
+                }
+            };
+
+            function sortbyAuthor() {
+                library.bubbleSortObjAuthor();
+                library.displayObj();
+            }
+
+            function sortbyTitle() {
+                library.bubbleSortObjTitle();
+                library.displayObj();
+            }
+
+            function sortbyID() {
+                library.bubbleSortObjLibraryID();
+                library.displayObj();
+            }
+
+        </script>
+        </head>
+        <body>
+            <h1>Sort the Objects</h1>
+            <button onclick="sortbyTitle()">Title Sort</button>
+            <button onclick="sortbyAuthor()">Author Sort</button>
+            <button onclick="sortbyID()">Id Sort</button>
+            <p>Sorted Objects: </p>    
+            <section id="postSort">
+            </section>
+        </body>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 5</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

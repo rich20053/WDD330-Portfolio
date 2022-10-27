@@ -35,33 +35,19 @@ const hikeList = [
     }
 ];
 
-Object.prototype.renderThisHike = function(item) 
-{
-  item.innerHTML = ` <h2>${this.name}</h2>
-  <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
-  <div>
-          <div>
-              <h3>Distance</h3>
-              <p>${this.distance}</p>
-          </div>
-          <div>
-              <h3>Difficulty</h3>
-              <p>${this.difficulty}</p>
-          </div>
-  </div>`;
-  //console.log(item.innerHTML);
-  return item;
-}
-
 // Hike Model
 export default class HikeModel {
   constructor() {
     // We need a constructor...but in this case it isn't doing much
+    const commentList = [];
   }
+
   getAllHikes() {
     // should return a list of all the hikes.
+    console.log(hikeList);
     return hikeList;
   }
+  
   getHikeByName(hikeName) {
     // filter the hikes for the record identified by hikeName and return it
     let hike = hikeList.filter(oneHike => oneHike.name = hikeName);

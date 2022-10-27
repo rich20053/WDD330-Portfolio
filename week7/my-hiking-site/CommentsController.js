@@ -1,21 +1,20 @@
-import HikeModel from './HikeModel.js';
-import HikesView from './HikesView.js';
+import CommentModel from './CommentModel.js';
+import CommentsView from './CommentsView.js';
 
-// Hike controller
-export default class HikesController {
+// Comments controller
+export default class CommentsController {
   constructor(parentId) {
     this.parentElement = document.getElementById(parentId); 
     // this is how our controller will know about the model and view...we add them right into the class as members.
-    this.hikeModel = new HikeModel();
-    this.hikesView = new HikesView(parentId);
+    this.commentModel = new CommentModel();
+    this.commentsView = new CommentsView(parentId);
     //this.addHikeListener();
   }
 
-  showHikeList() {
-    debugger;
+  showCommentList() {
     //  this will get called each time we need to display our full hike list. It should grab the list of hikes from the Model, and then send them to the view.
-    const hList = this.hikeModel.getAllHikes();
-    this.hikesView.renderHikeList(hList, this.parentElement);
+    const cList = this.commentModel.getAllComments();
+    this.commentsView.renderCommentList(cList, this.parentElement);
   }
 
   showOneHike(hikeNbr, listElement) {
@@ -24,6 +23,7 @@ export default class HikesController {
     this.hikesView.renderOneHikeFull(oneHike, listElement);
   }
   
+  /*
   addHikeListener() {
     // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
     const hLList = document.getElementsByTagName('li');
@@ -33,7 +33,7 @@ export default class HikesController {
         hLList[i].addEventListener('click', () => 
             this.showOneHike(i), this.parentElement);
     }
-  }
+  } */
 
 }
 

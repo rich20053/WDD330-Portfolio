@@ -1,12 +1,12 @@
-  // Hike View handler
-  export default class HikesView {
+  // Comment View handler
+  export default class CommentsView {
     constructor(listElementId) {
         // will need this
         this.imgBasePath = '//byui-cit.github.io/cit261/examples/';
         
     }
 
-    renderHikeList(hikeList, listElement) {
+    renderCommentList(commentList, listElement) {
       var screenList = document.querySelector("ul");
       var child = screenList.lastElementChild;
       // Remove all current tasks from HTML
@@ -14,30 +14,30 @@
           screenList.removeChild(child);
           child = screenList.lastElementChild;
       }
-      // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
-      for (var i=0; i<hikeList.length; i++) {
-        const hike = hikeList[i];
-        const renderItem = this.renderOneHikeLight(hike);
+      // loop through our list of comments building out the appropriate HTML for each and append it to the listElement
+      for (var i=0; i<commentList.length; i++) {
+        const comment = commentList[i];
+        const renderItem = this.renderOneCommentLight(comment);
         listElement.appendChild(renderItem);
-        //console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
+        //console.log(`${i} ${comment.name} ${listElement} ${renderItem}`);
       };
     }
 
-    renderOneHikeLight(hike) {
-      // this method will be used to create the list of hikes with less detail: name, image, distance, difficulty 
+    renderOneCommentLight(comment) {
+      // this method will be used to create the list of comments with less detail: name, image, distance, difficulty 
       const item = document.createElement("li");
       item.setAttribute("class", "light");
       item.addEventListener('touchend', () => {
-        this.renderOneHikeFull(hike);
+        this.renderOneCommentFull(comment);
       });
       item.addEventListener('click', () => {
-        this.renderOneHikeFull(hike);
+        this.renderOneCommentFull(comment);
       });
-      return hike.renderThisHike(item);
+      return comment.renderThisComment(item);
     }
 
-    renderOneHikeFull(hike) {
-      console.log("full hike");
+    renderOneCommentFull(comment) {
+      console.log("full comment");
       var screenList = document.querySelector("ul");
       var child = screenList.lastElementChild;
       // Remove all current tasks from HTML
@@ -45,11 +45,11 @@
           screenList.removeChild(child);
           child = screenList.lastElementChild;
       }
-      // this method will be used to one hike with full detail...you will need this for the stretch goal! 
+      // this method will be used to one comment with full detail...you will need this for the stretch goal! 
       const item = document.createElement("li");
       item.setAttribute("class", "full");
-      const hikeItem = hike.renderThisHikeOnly(item);
-      screenList.appendChild(hikeItem);
+      const commentItem = comment.renderThisCommentOnly(item);
+      screenList.appendChild(commentItem);
     }
   }
 

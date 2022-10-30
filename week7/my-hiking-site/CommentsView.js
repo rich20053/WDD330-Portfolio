@@ -7,17 +7,31 @@
     }
 
     renderCommentList(commentList, listElement) {
-      var screenList = document.querySelector("ul");
+      // Creating a comment constant for use in the Comments class
+      const commentUL = `
+      <div class="addComment">
+          <h2>Add a Comment</h2>
+          <input type="text" id="commentEntry" />
+          <button id="commentSubmit" onclick="addComm()">Add Comment</button>
+      </div>
+      <h2>Comments</h2>
+      <ul class="commentlist"></ul>
+      `;      
+      
+      var screenList = listElement;
       var child = screenList.lastElementChild;
       // Remove all current tasks from HTML
       while (child) {
           screenList.removeChild(child);
           child = screenList.lastElementChild;
       }
+      
+      listElement.innerHTML = commentUL;
+      
       // loop through our list of comments building out the appropriate HTML for each and append it to the listElement
       for (var i=0; i<commentList.length; i++) {
-        const comment = commentList[i];
-        const renderItem = this.renderOneCommentLight(comment);
+        const aComment = commentList[i];
+        const renderItem = this.renderOneCommentLight(aComment);
         listElement.appendChild(renderItem);
         //console.log(`${i} ${comment.name} ${listElement} ${renderItem}`);
       };

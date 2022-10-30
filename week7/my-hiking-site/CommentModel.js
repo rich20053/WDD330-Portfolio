@@ -5,12 +5,23 @@
 export default class CommentModel {
   constructor() {
     // We need a constructor...but in this case it isn't doing much
+    this.commentList = [];
   }
 
   getAllComments() {
     // should return a list of all the Comments.
-    console.log(commentList);
-    return commentList;
+    var myJSON = JSON.parse(window.localStorage.getItem('hikecommentlist'));
+    if (myJSON != "" && myJSON != null) {
+      for (var i=0; i<myJSON.length; i++) {
+        const newComment = {
+          name: myJSON[i].name,
+          date: myJSON[i].date,
+          content: myJSON[i].content
+        };
+        this.commentList.push(newComment);
+      }
+    }
+    return this.commentList;
   }
 
   getCommentByName(commentName) {
@@ -18,4 +29,10 @@ export default class CommentModel {
     let comment = commentList.filter(oneComment => oneComment.name = commentName);
     return comment;
   }
+
+ // Add comment to the array of comments
+  addTask (comment) {
+      this.commentList.push(comment);
+  }
+
 }

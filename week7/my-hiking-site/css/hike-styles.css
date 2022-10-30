@@ -75,6 +75,18 @@ img {
   flex-direction: row;
 }
 
+.hidden {
+  display: none;
+}
+
+#commentEntry {
+  width: 70%;
+}
+
+#comments {
+  margin: 10px;
+}
+
 @media screen and (max-width: 875px) {         /* 32.5em) { */ 
   .full .one-hike {
     display: flex;

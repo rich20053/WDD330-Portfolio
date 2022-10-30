@@ -1,5 +1,7 @@
 
 import HikesController from './hikesController.js';
+import CommentsController from './CommentsController.js';
+//import { addComm } from './AddButton.js';
 
 Object.prototype.renderThisHike = function(item) 
 {
@@ -50,12 +52,31 @@ Object.prototype.renderThisHikeOnly = function(item)
 }
 
 const hikesCtrl = new HikesController('hikes');
+const commentCtrl = new CommentsController('comments');
 
 window.addEventListener('load', () => {
-    hikesCtrl.showHikeList();
+  hikesCtrl.showHikeList();
+  commentCtrl.showCommentList();
 });
 
-function reloadList() {
-    hikesCtrl.showHikeList();
+// Global functions that are triggered by buttons
+// Add Comment Button
+export function addComm() {
+  debugger;
+  var newCommentInput = document.querySelector('#newItem');
+  var commentName = newCommentInput.value; 
+  if (commentName != "") {
+    const newComment = {
+      name: "hike1",
+      date: new Date(),
+      content: commentName
+    };
+
+      myTDList.addComment(newComment);
+      myTDList.displayList();
+  }
+  var NewCommentInput = document.querySelector('#newItem');
+  NewCommentInput.focus();
+  NewCommentInput.value = "";
 }
 

@@ -10,8 +10,18 @@
     <body>
         <main>
             <h1>Great Hikes</h1>
-            <ul id="hikes" class="hikeStyles"></ul>
+            <ul id="hikes" class="hikeStyles">
+            </ul>
+            <section id="comments">
+                <div id = "addComment" class="hidden">
+                    <h2>Add a Comment</h2>
+                    <input type="text" id="commentEntry" placeholder="Enter Comment Here"/>
+                    <button id="commentSubmit" onclick="addComm()">Add Comment</button>
+                </div>
+                <h2>Comments</h2>
+                <ul id="commentlist"></ul>          
+            </section>
         </main>
     </body>
-    <script src="index.js" type="module"></script>
+    <script src="main.js"></script>
 </html>

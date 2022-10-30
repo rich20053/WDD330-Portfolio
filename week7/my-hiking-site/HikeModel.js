@@ -39,7 +39,6 @@ const hikeList = [
 export default class HikeModel {
   constructor() {
     // We need a constructor...but in this case it isn't doing much
-    const commentList = [];
   }
 
   getAllHikes() {

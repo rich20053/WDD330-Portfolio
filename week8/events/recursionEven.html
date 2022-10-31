@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../css/week_style.css" />
+    <title>Recursion Example</title>
+</head>
+<body>
+    <h1>Determine if a number is even - using recursion</h1>
+    Enter Number: <input id="input"> </input>
+    <button onclick="checkEven()">Check If Even</button><br>
+    Is it even? <div id="isEvenOutput"></div>
+<script>
+    function checkEven() {
+        var outputNbr;
+        var inputValue = document.getElementById("input").value;
+        var inputNbr = parseInt(inputValue);
+        if (Number.isInteger(inputNbr)) {
+            result = isEven(inputNbr);
+            document.getElementById("isEvenOutput").textContent = result;
+        }
+        else {
+            document.getElementById("isEvenOutput").textContent = "Input is not a number";
+        }
+    }
+
+    function isEven(n) {
+        if (n == 0) return true;
+        else if (n == 1) return false;
+        else if (n < 0) return isEven(-n);
+        else return isEven(n - 2);
+    }
+</script>
+<footer>
+    <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 8</a>| <a href="../../index.html">Home</a></p>
+    <p id="datemodified"></p><br>
+</footer>
+<script src="../../javascript/this-year.js"></script>
+<script src="../../javascript/last-modified.js"></script>
+</body>

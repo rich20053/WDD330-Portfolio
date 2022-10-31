@@ -4,7 +4,6 @@ const form = document.forms['todo'];
 form.addEventListener('submit', addTask, false);
 
 function addTask(event) {
-    debugger;
     event.preventDefault();
     const task = new FormData(form);
     const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`;

@@ -37,7 +37,6 @@ const hikeList = [
 
 Object.prototype.renderThisHike = function(item) 
 {
-  console.log("thishikeforlist");
   item.innerHTML = ` <h2>${this.name}</h2>
   <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
   <div class="info">
@@ -50,13 +49,11 @@ Object.prototype.renderThisHike = function(item)
               <p>${this.difficulty}</p>
           </div>
   </div>`;
-  //console.log(item.innerHTML);
   return item;
 }
 
 Object.prototype.renderThisHikeOnly = function(item) 
 {
-  console.log("thishikeonly");
   item.innerHTML = `<h2 id="hike-name">${this.name}</h2>
   <div class="one-hike">
     <div class="image"><img src="./${this.imgSrc}" alt="${this.imgAlt}"></div>
@@ -79,7 +76,6 @@ Object.prototype.renderThisHikeOnly = function(item)
       </div>
       <button onclick="location.reload()">&lt;- All Hikes</button>
       </div>`;
-  //console.log(item.innerHTML);
   return item;
 }
 
@@ -97,7 +93,6 @@ class HikeModel {
 
   getAllHikes() {
     // should return a list of all the hikes.
-    console.log(hikeList);
     return hikeList;
   }
   
@@ -128,7 +123,6 @@ class HikesView {
         const hike = hikeList[i];
         const renderItem = this.renderOneHikeLight(hike);
         listElement.appendChild(renderItem);
-        //console.log(`${i} ${hike.name} ${listElement} ${renderItem}`);
       };
     }
 
@@ -282,7 +276,6 @@ class CommentsView {
     }
 
     renderOneCommentFull(comment) {
-      console.log("full comment");
       var screenList = document.querySelector("ul");
       var child = screenList.lastElementChild;
       // Remove all current tasks from HTML

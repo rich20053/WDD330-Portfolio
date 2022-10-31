@@ -7,19 +7,17 @@ button {
     display: inline;
 }
 
-p {
-    display: inline;
-    margin: 10px;
-} 
-
 div {
     display: block;
 }
 
 div p {
     text-align: left;
+    display: inline;
 }
 
 #evalEveryOut {
     display: inline;
 }
+
+

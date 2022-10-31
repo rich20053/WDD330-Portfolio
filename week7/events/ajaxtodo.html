@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../css/week_style.css" />
+    <title>To Do List</title>
+</head>
+<body>
+    <form id='todo' action='https://jsonplaceholder.typicode.com/todos' method='POST'>
+        <input type='text' name='task'  placeholder='Add Task' autofocus required>
+        <button type='submit'>Add Task</button>
+    </form>
+    <div id="output"></div>
+    <script src='mainform.js'></script>
+    <footer>
+        <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 7</a>| <a href="../../index.html">Home</a></p>
+        <p id="datemodified"></p><br>
+    </footer>
+    <script src="../../javascript/this-year.js"></script>
+    <script src="../../javascript/last-modified.js"></script>
+</body>
+</html>

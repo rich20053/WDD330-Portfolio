@@ -20,7 +20,11 @@ function addTask(event) {
         }
     )
 
-    fetch(request)
+    fetch(request, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/plain"
+        }})
     .then( response => response.json() )
     .then( data => {
             const formOutput = document.getElementById("output");

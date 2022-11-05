@@ -20,6 +20,8 @@ div p {
     display: inline;
 }
 
-.ulhead {
-    font-size: large;
+h2 {
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

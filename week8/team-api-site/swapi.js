@@ -139,6 +139,8 @@ function displayItem(itemData) {
         subitem = document.createElement("li");
         subitem.innerHTML = `Height: ${itemData.height}`;
         description.appendChild(subitem);
+        //var flightPath = document.querySelector("#starbox");
+        //flightPath.style.height = 0px;
     }
     else if (currentSet == "ships") {
         var subitem = document.createElement("li");
@@ -156,6 +158,8 @@ function displayItem(itemData) {
         subitem = document.createElement("li");
         subitem.innerHTML = `Cargo: ${itemData.cargo_capacity}`;
         description.appendChild(subitem);
+        //var flightPath = document.querySelector("#starbox");
+        //flightPath.style.height = 0px;
     }
     else if (currentSet == "films") {
         var subitem = document.createElement("li");
@@ -176,6 +180,8 @@ function displayItem(itemData) {
         subitem = document.createElement("li");
         subitem.innerHTML = `Opening: ${itemData.opening_crawl}`;
         description.appendChild(subitem);
+        //var flightPath = document.querySelector("#starbox");
+        //flightPath.style.height = 200px;
     }
     outputUL.appendChild(description);
 }

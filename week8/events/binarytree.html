@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../css/week_style.css" />
-    <title>To Do List</title>
+    <title>Binary Tree Sort</title>
 </head>
 <body>
-    <form id='todo' action='https://jsonplaceholder.typicode.com/todos' method='POST'>
-        <input type='text' name='task'  placeholder='Add Task' autofocus required>
-        <button type='submit'>Add Task</button>
-    </form>
-    <div id="output"></div>
-    <script src='mainform.js'></script>
+    <h1>Binary Tree Sort Using Recursion</h1>
+    How many values do you want to sort? <input id="valueCnt" placeholder="5? 10? 100?"> </input> <br>
+    <br>How large can the numbers be? From 1 to <input id="valueSize" placeholder="100? 200?"> </input><br>
+    <button id="sortButton" onclick="sortRandomList()">Sort Binary Tree</button>
+    <div id="beginOutput"></div>
+    <div id="sortedOutput"></div>
+    <script src='binarytree.js'></script>
     <footer>
         <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 7</a>| <a href="../../index.html">Home</a></p>
         <p id="datemodified"></p><br>

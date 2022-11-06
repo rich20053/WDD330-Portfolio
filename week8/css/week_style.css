@@ -25,3 +25,80 @@ h2 {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+@keyframes flight {
+    from {
+        bottom: 0px; 
+        left: 0px;   
+        width: 10%;
+    }
+    to {
+        bottom: 300%;
+        left: 150%;
+        width: 50%;
+    }
+  }
+  
+  #starbox {
+     position: relative;
+     /*width: 100%; */
+     height: 400px;
+  }
+  
+  #shipflight {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 0;
+    animation-name: flight;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color:transparent;
+  }
+
+  $cardfill-color: white;
+$cardedge-color: black;
+$honey-color: gold;
+$honeycomb: goldenrod;
+$honeycomb-face: yellow;
+$heart-face-color: violet;
+
+.playingcard {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+#hex {
+  fill: gold;
+  stroke: goldenrod;
+  stroke-width: 2px;
+}
+
+.hexface {
+  fill: yellow;
+}
+
+.hctext {
+  stroke: black;
+}
+
+.heartface {
+  fill: violet;
+}
+
+.heartcircle {
+  fill: blue;
+  stroke: yellow;
+  stroke-width: 20px;
+}
+
+#heartsymbol {
+  fill: pink;
+  stroke: red;
+  stroke-width: 2px;
+}
+
+
+  

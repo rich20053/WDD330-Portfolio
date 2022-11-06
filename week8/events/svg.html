@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../css/week_style.css" />
+        <title>Playing Cards</title>
+        <script>
+            function everyInput() {
+                debugger;
+                const strInput = document.getElementById("inputS");
+                var splitArry = strInput.split();
+                console.log(splitArray);
+                console.log();
+            }
+
+            function every(array, test) {
+                var testResult = true;
+                for (var i=0; i<array.length; i++) {
+                    testResult = testResult && test(array[i]);
+                }
+                const output = document.getElementById("evalEveryOut");
+                output.textContent = testResult;
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>SVG Example - card deck designs</h1>
+        <svg width="800" height="800"> 
+            <!-- define -->
+            <defs>
+              <!-- heart symbol for card 1 -->
+              <symbol id="heartsymbol" x="5" y="0" width="95" height="135">
+                   <path 
+                      d="M0 60 v-60 h60 
+                        a30,30 45 0,1 0,60
+                        a30,30 45 0,1 -60,0
+                      z" />
+              </symbol>
+              
+              <!-- hex pattern for card 2 -->
+                <pattern id="cardpattern2" patternUnits="userSpaceOnUse" x="15" y="0" width="48" height="48">
+                  <polygon id="hex" points="16,0 32,0 48,16 48,32 32,48 16,48 0,32 0,16 16,0" />
+                </pattern>
+              <!-- Text for Honeycomb Cards -->
+                <path id="HoneyCombTextPath"
+                        d="M376,180
+                           a1,1 0 0,0 100,0
+                         " transform="rotate(-30 440 195)"
+                />
+                <path id="HoneyCombTextPath2"
+                        d="M376,90
+                           a1,1 0 0,0 100,0
+                         "  transform="rotate(150 405 80)"
+                />
+            </defs>
+          
+            <!--  CARD 1 -->
+            <!-- set up card1 -->
+              <rect x="50" y="0" width="200" rx="10" ry="10" height="280" class="playingcard" /> 
+          
+              <rect x="55" y="5" width="190" rx="10" ry="10" height="270" class="heartface" /> 
+            <!-- Background Circle -->
+              <circle cx="150" cy="140" r="40" class="heartcircle" />
+            <!-- Hearts -->
+            <use xlink:href="#heartsymbol" x="53" y="48" transform="rotate(180 104 93)"/>
+            <use xlink:href="#heartsymbol" x="147" y="52" transform="rotate(-90 196 94)" />
+            <use xlink:href="#heartsymbol" x="53" y="142" transform="rotate(90 104 187)"/>
+            <use xlink:href="#heartsymbol" x="147" y="142" />
+          
+            <!--  CARD 1 -->
+            <!-- set up card1 -->
+              <rect x="300" y="0" width="200" rx="10" ry="10" height="280" fill="white"class="playingcard" /> 
+              <rect x="305" y="5" width="190" rx="10" ry="10" height="270" fill="yellow"class="hexface" /> 
+          <!-- use pattern2 in a card2 -->
+              <rect x="305" y="5" width="190" rx="10" ry="10" height="270"   <!-- fill="url(#cardpattern2)" /> 
+            <!-- Text -->
+              <text x="10" y="100" class="hctext">
+                <textPath xlink:href="#HoneyCombTextPath" >
+                      The Honeycomb Cards
+                </textPath>
+              </text>
+              <text x="10" y="100" class="hctext">
+                <textPath xlink:href="#HoneyCombTextPath2">
+                      The Honeycomb Cards
+                </textPath>
+              </text>
+          
+          </svg>
+        <footer>
+            <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Week 8</a>| <a href="../../index.html">Home</a></p>
+            <p id="datemodified"></p><br>
+        </footer>
+        <script src="../../javascript/this-year.js"></script>
+        <script src="../../javascript/last-modified.js"></script>
+    </body>
+</html>

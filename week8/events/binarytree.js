@@ -40,8 +40,9 @@ function add_node(node, value) {
         add_left(node, value);
     }
     else if (value == node.data) {
-        value = node.data;
-        // add_left(node, value); // include this line if you want duplicates in the tree.
+        //value = node.data;
+        console.log("equal");
+        add_left(node, value); // include this line if you want duplicates in the tree.
     }
     else {
         add_right(node, value);

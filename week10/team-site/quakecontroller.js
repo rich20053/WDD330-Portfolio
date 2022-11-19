@@ -16,13 +16,18 @@ export default class QuakesController {
     // this is how our controller will know about the model and view...we add them right into the class as members.
     this.quakes = new Quake();
     this.quakesView = new QuakesView();
+    console.log("end of controller constructor");
   }
+
   async init(radius = 100) {
     // use this as a place to grab the element identified by this.parent, do the initial call of this.initPos(), and display some quakes by calling this.getQuakesByRadius()
     this.parentElement = document.querySelector(this.parent);
+    console.log(radius);
     await this.initPos();
     this.getQuakesByRadius(radius);
+    console.log("end of init");
   }
+
   async initPos() {
     // if a position has not been set
     if (this.position.lat === 0) {
@@ -40,6 +45,7 @@ export default class QuakesController {
         console.log(error);
       }
     }
+    console.log("end of initPos");
   }
 
   async getQuakesByRadius(radius = 100) {
@@ -60,6 +66,7 @@ export default class QuakesController {
       this.getQuakeDetails(e.target.dataset.id);
     });
   }
+  
   async getQuakeDetails(quakeId) {
     // get the details for the quakeId provided from the model, 
     // then send them to the view to be displayed

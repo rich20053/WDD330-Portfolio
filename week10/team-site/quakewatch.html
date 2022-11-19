@@ -9,11 +9,15 @@
     <body>
         <main>
             <h1>Quake List</h1>
-            Select area radius (in miles): <input id="radiussize" type="number">
+            Select area radius (in kilometers): <input id="radiussize" type="number" value="100"><br>
+            Select date range: <input id="fromDate" type="date" value="2019-01-01">
+            to <input id="toDate" type="date" value="2019-03-02">
+            <button onclick="resetRadius()">Reset Values</button>
             <ul id="quakeList" ></ul>
         </main>
     </body>
-    <script src="index.js" type="module"></script>
+    <!--<script src="index.js" type="module"></script>-->
+    <script src="misc.js"></script>
     <style>
         body {
             background-color: aqua;

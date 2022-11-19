@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WDD 330 Portfolio - Challenge 2</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>WDD 330 Portfolio - Challenge 2 - Plant Plot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Raleway&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./css/plant_style.css" />
   </head> 
   <body>
     <header>
@@ -17,16 +19,21 @@
       </nav>
     </header>
     <main>
-      <section>
-        <div id="mylist">
-          <ul id="myplantlist">
+      <section id="plantlistpage">
+        <div id="availlist">
+          <h3>Available Plants</h3>
+          <ul id="availplants" class="plantlist">Show list here
           </ul>      
         </div>
-        <div id="plantlist">
-
+        <div id="mylist">
+          <h3>My Plant Selections</h3>
+          <ul id="plantlist">Show list here
+          </ul>      
         </div>
+        <article id="plantdesc">Show Plant Detail</article>
       </section>
     </main>
+    <script src="./js/challenge.js"></script>
     <footer>
       <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Home</a></p>
       <p id="datemodified"></p><br>

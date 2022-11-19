@@ -2,28 +2,6 @@ let toDate = document.getElementById("toDate").value;
 let fromDate = document.getElementById("fromDate").value;
   
 function getJSON(url) {
-  /*
-  fetch(peopleURL)
-  .then( response => {
-      outputUL.innerHTML = 'Waiting for response...';
-      if(response.ok) {
-          return response;
-      }
-          throw Error(response.statusText);
-      }
-  )
-  .then( response => response.json() )
-  .then( data => {
-      nextURL = data.next;
-      prevURL = data.previous;
-      itemArray = data.results;
-      outputUL.innerHTML = '';
-      for (var i=0; i<itemArray.length; i++) {
-          displayItem(itemArray[i], outputUL);
-      }
-  })
-  .catch( error => console.log('There was an error:', error))
-  */
   return fetch(url)
         .then(function(response) {
             if (!response.ok) {
@@ -34,7 +12,7 @@ function getJSON(url) {
         })
         .catch(function(error) {
             console.log(error);
-        });x
+        });
 }
 
 const getLocation = function(options) {
@@ -66,14 +44,25 @@ class Quake {
       `&latitude=${position.lat}&longitude=${position.lon}&maxradiuskm=${radius}`;
       console.log(query);
       this._quakes = getJSON(query);
+      debugger;
       console.log(`quake data= ${this._quakes}`);
       return this._quakes;
     }
 
-    getQuakeById(id) {
+    getQuakeById(id, pQuakes, pQQuakes) {
       // filter this._quakes for the record identified by id and return it
+      debugger;
+      console.log(pQuakes.features);
+      console.log(pQQuakes.features);
+      console.log(pQQuakes.features[0]);
+      console.log(pQQuakes.features[0].id);
+      console.log(this._quakes.features);
+      console.log(this._quakes.features[0]);
+      console.log(this.this._quakes.features[0].id);
+      console.log(id);
       return this._quakes.features.filter(item => item.id === id)[0];
     }
+  
   }
   
     // Quake View handler
@@ -98,10 +87,10 @@ class Quake {
             <p>${new Date(element.properties.time)}</p>`;
             listElement.appendChild(item);
           });*/
-      
           listElement.innerHTML = quakeList.features.map(quake => {
             const options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
-            return `<li data-id="${quake.properties.id}">${quake.properties.title} <div>${new Date(quake.properties.time).toLocaleDateString('en-US', options)}</div></li>`;
+            //debugger;
+            return `<li data-id="${quake.id}">${quake.properties.title}, ${new Date(quake.properties.time).toLocaleDateString('en-US', options)}</li>`;
           }).join('');
           console.log(`count: ${quakeList.features.length}`);
           listElement.innerHTML = `<h3>Quakes within ${radius} kilometers (${quakeList.features.length}): </h3>` + listElement.innerHTML;
@@ -180,20 +169,20 @@ class QuakesController {
       // this method provides the glue between the model and view. Notice it first goes out and requests the appropriate data from the model, then it passes it to the view to be rendered.
       //set loading message
       //this.parentElement.innerHTML = 'Loading...';
-      //debugger;
+      debugger;
       // get the list of quakes in the specified radius of the location
       console.log(`to: ${toDate} from:${fromDate}`);
       const quakeList = await this.quakes.getEarthQuakesByRadius(
         this.position,
         radius
       );
-      //debugger;
+      debugger;
       // render the list to html
       this.quakesView.renderQuakeList(quakeList, this.parentElement, radius);
       // add a listener to the new list of quakes to allow drill down in 
       // to the details
-      //debugger;
       this.parentElement.addEventListener('touchend', e => {
+        debugger;
         this.getQuakeDetails(e.target.dataset.id);
       });
     }
@@ -201,9 +190,9 @@ class QuakesController {
     async getQuakeDetails(quakeId) {
       // get the details for the quakeId provided from the model, 
       // then send them to the view to be displayed
-      const ourQuake = getQuakeById(quakeId);
-      renderQuake(ourQuake);
-  
+      debugger;
+      const ourQuake = this.quakes.getQuakeById(quakeId, this.quakes, this.quakes._quakes);
+      this.quakesView.renderQuake(ourQuake, this.parentElement);
     }
   }  
 

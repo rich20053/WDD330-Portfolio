@@ -1,104 +1,101 @@
 
-//const peopleButton = document.getElementById('people');
-//const shipsButton = document.getElementById('ships');
-//const filmsButton = document.getElementById('films');
-const availPlants = document.getElementById('availplants');
+const availPlayers = document.getElementById('availplayers');
 //const prevButton = document.getElementById('prevSet');
 //const nextButton = document.getElementById('nextSet');
-var availPlantArray = [];
-//var currentSet = "";
+var availPlayerArray = [];
+var myPlayerArray = [];
 //var nextURL = "";
 //var prevURL = "";
 
-const plantURL = 'https://trefle.io/doc/swagger.json';
-//const shipsURL = 'https://swapi.dev/api/starships/';
-//const filmsURL = 'https://swapi.dev/api/films/';
+const playStatURL = 'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2022/';
+const playerURL = 'https://api.sportsdata.io/v3/nba/scores/json/Players?key=57d85064908b4d1e83fb7c0987aefff3';
 
-function displayItem(itemData, outputUL) {
+function removePrevAvailSelected() {
+    var outputUL = document.querySelector("#availplayers");
+    const nodeList = outputUL.childNodes;
+    //debugger;
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].classList.remove('selected');
+    }
+}
+
+function displayPlayer(itemData, outputUL) {
  
     const item = document.createElement("li");
-    item.innerHTML = itemData.name;
+    item.innerHTML = `${itemData.LastName}, ${itemData.FirstName} - ${itemData.Team} - ${itemData.Position}`; // - ${itemData.PlayerID}`;
     
     item.setAttribute("class", "item");
-/*    const description = document.createElement('ul');
-    description.style.display = 'none';
-    item.onclick = () => {
-        description.style.display = description.style.display === 'none'? 'block' : 'none';
-    }*/
+    // Listener attached to the item to pull stats
+    item.addEventListener('click', () => {
+        //debugger;
+        let btn = document.getElementsByClassName("hidden");
+        console.log(btn);
+        let btnLen = btn.length;
+        for (let i=0; i<btnLen; i++) {
+            btn[0].classList.remove('hidden');
+        }
+        removePrevAvailSelected();
+        item.classList.add('selected');
+        displayPlayerStats(itemData.PlayerID, itemData.FirstName, itemData.LastName);
+    })
     outputUL.appendChild(item);
-/*    if (currentSet == "people") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Born: ${itemData.birth_year}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Gender: ${itemData.gender}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Hair Color: ${itemData.hair_color}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Eye Color: ${itemData.eye_color}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Height: ${itemData.height}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 0px;
-    }
-    else if (currentSet == "ships") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Model: ${itemData.model}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Hyperdrive: ${itemData.hyperdrive_rating}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Crew: ${itemData.crew}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Length: ${itemData.length}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Cargo: ${itemData.cargo_capacity}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 0px;
-    }
-    else if (currentSet == "films") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Title: ${itemData.title}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Episode: ${itemData.episode_id}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Release Date: ${itemData.release_date}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Director: ${itemData.director}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Producer: ${itemData.producer}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Opening: ${itemData.opening_crawl}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 200px;
-    }
-    outputUL.appendChild(description);*/
 }
 
-function viewAvailPlants() {
-    var outputUL = document.querySelector("#availplants");
+function displayStats(outputUL, stats, fName, lName) {
+ 
+    console.log(stats);
+    //item = document.createElement("p");
+    //item.innerHTML = `ID: ${stats.PlayerID}`;
+    //outputUL.appendChild(item);
+    let item = document.createElement("p");
+    item.innerHTML = `${fName} ${lName}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Games: ${stats.Games}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Points: ${stats.Points}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Points/Game: ${(stats.Points/stats.Games).toFixed(2)}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Rebounds: ${stats.Rebounds}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Rebounds/Game: ${(stats.Rebounds/stats.Games).toFixed(2)}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Assists: ${stats.Assists}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Assists/Game: ${(stats.Assists/stats.Games).toFixed(2)}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Steals: ${stats.Steals}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Steals/Game: ${(stats.Steals/stats.Games).toFixed(2)}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Blocks: ${stats.BlockedShots}`;
+    outputUL.appendChild(item);
+    item = document.createElement("p");
+    item.innerHTML = `Blocks/Game: ${(stats.BlockedShots/stats.Games).toFixed(2)}`;
+    outputUL.appendChild(item);
+}
+
+function viewAvailPlayers() {
+    //debugger;
+    var outputUL = document.querySelector("#availplayers");
     var child = outputUL.lastElementChild;
     // Remove all current tasks from HTML
     while (child) {
         outputUL.removeChild(child);
         child = outputUL.lastElementChild;
     }
-    //currentSet = "people";
-    fetch(plantURL)
+
+    fetch(playerURL) 
     .then( response => {
         outputUL.innerHTML = 'Waiting for response...';
         if(response.ok) {
@@ -109,222 +106,47 @@ function viewAvailPlants() {
     )
     .then( response => response.json() )
     .then( data => {
-        //nextURL = data.next;
-        //prevURL = data.previous;
-        itemArray = data.results;
+        console.log(data);
+        let itemArray = data;
         outputUL.innerHTML = '';
+        //debugger;
         for (var i=0; i<itemArray.length; i++) {
-            displayItem(itemArray[i], outputUL);
+            displayPlayer(itemArray[i], outputUL);
         }
     })
-    .catch( error => console.log('There was an error:', error))
+    .catch( error => console.log('There was an error:', error)) 
 };
 
-viewAvailPlants();
-
-/*
-shipsButton.addEventListener('click', () => {
-    var outputUL = document.querySelector("#output");
+function displayPlayerStats(playerID, fName, lName) {
+    //debugger;
+    var outputUL = document.querySelector("#playerdesc");
     var child = outputUL.lastElementChild;
     // Remove all current tasks from HTML
     while (child) {
         outputUL.removeChild(child);
         child = outputUL.lastElementChild;
     }
-    currentSet = "ships";
-    fetch(shipsURL)
+    let statURL = playStatURL+playerID+`?key=57d85064908b4d1e83fb7c0987aefff3`;
+    fetch(statURL) 
     .then( response => {
         outputUL.innerHTML = 'Waiting for response...';
         if(response.ok) {
             return response;
         }
-        throw Error(response.statusText);
+            throw Error(response.statusText);
         }
     )
     .then( response => response.json() )
     .then( data => {
-        nextURL = data.next;
-        prevURL = data.previous;
-        itemArray = data.results;
+        console.log(data);
+        let itemArray = data;
+        console.log(itemArray);
         outputUL.innerHTML = '';
-        for (var i=0; i<itemArray.length; i++) {
-            displayItem(itemArray[i], outputUL);
-        }
+        //debugger;
+        displayStats(outputUL, itemArray, fName, lName);
     })
-    .catch( error => console.log('There was an error:', error))
-},false);
+    .catch( error => console.log('There was an error:', error)) 
+};
 
-filmsButton.addEventListener('click', () => {
-    var outputUL = document.querySelector("#output");
-    var child = outputUL.lastElementChild;
-    // Remove all current tasks from HTML
-    while (child) {
-        outputUL.removeChild(child);
-        child = outputUL.lastElementChild;
-    }
-    currentSet = "films";
-    fetch(filmsURL)
-    .then( response => {
-        outputUL.innerHTML = 'Waiting for response...';
-        if(response.ok) {
-            return response;
-        }
-        throw Error(response.statusText);
-        }
-    )
-    .then( response => response.json() )
-    .then( data => {
-        nextURL = data.next;
-        prevURL = data.previous;
-        itemArray = data.results;
-        outputUL.innerHTML = '';
-        for (var i=0; i<itemArray.length; i++) {
-            displayItem(itemArray[i], outputUL);
-        }
-    })
-    .catch( error => console.log('There was an error:', error))
-},false);
+viewAvailPlayers();
 
-function displayItem(itemData) {
-    var outputUL = document.querySelector("#output");
-    const item = document.createElement("h3");
-    if (currentSet=="films") {
-        item.innerHTML = itemData.title;
-    }
-    else {
-        item.innerHTML = itemData.name;
-    }
-    item.setAttribute("class", "item");
-    const description = document.createElement('ul');
-    description.style.display = 'none';
-    item.onclick = () => {
-        description.style.display = description.style.display === 'none'? 'block' : 'none';
-    }
-    outputUL.appendChild(item);
-    if (currentSet == "people") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Born: ${itemData.birth_year}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Gender: ${itemData.gender}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Hair Color: ${itemData.hair_color}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Eye Color: ${itemData.eye_color}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Height: ${itemData.height}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 0px;
-    }
-    else if (currentSet == "ships") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Model: ${itemData.model}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Hyperdrive: ${itemData.hyperdrive_rating}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Crew: ${itemData.crew}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Length: ${itemData.length}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Cargo: ${itemData.cargo_capacity}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 0px;
-    }
-    else if (currentSet == "films") {
-        var subitem = document.createElement("li");
-        subitem.innerHTML = `Title: ${itemData.title}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Episode: ${itemData.episode_id}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Release Date: ${itemData.release_date}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Director: ${itemData.director}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Producer: ${itemData.producer}`;
-        description.appendChild(subitem);
-        subitem = document.createElement("li");
-        subitem.innerHTML = `Opening: ${itemData.opening_crawl}`;
-        description.appendChild(subitem);
-        //var flightPath = document.querySelector("#starbox");
-        //flightPath.style.height = 200px;
-    }
-    outputUL.appendChild(description);
-}
-
-prevButton.addEventListener('click', () => {
-    if (prevURL!=null) {
-        var outputUL = document.querySelector("#output");
-        var child = outputUL.lastElementChild;
-        // Remove all current tasks from HTML
-        while (child) {
-            outputUL.removeChild(child);
-            child = outputUL.lastElementChild;
-        }
-        fetch(prevURL)
-        .then( response => {
-            outputUL.innerHTML = 'Waiting for response...';
-            if(response.ok) {
-                return response;
-            }
-            throw Error(response.statusText);
-            }
-        )
-        .then( response => response.json() )
-        .then( data => {
-            nextURL = data.next;
-            prevURL = data.previous;
-            var thisArray = data.results;
-            outputUL.innerHTML = '';
-            for (var i=0; i<thisArray.length; i++) {
-                displayItem(thisArray[i]);
-            }
-        })
-        .catch( error => console.log('There was an error:', error))
-    }
-},false);
-
-nextButton.addEventListener('click', () => {
-    if (nextURL!=null) {
-        var outputUL = document.querySelector("#output");
-        var child = outputUL.lastElementChild;
-        // Remove all current tasks from HTML
-        while (child) {
-            outputUL.removeChild(child);
-            child = outputUL.lastElementChild;
-        }
-        fetch(nextURL)
-        .then( response => {
-            outputUL.innerHTML = 'Waiting for response...';
-            if(response.ok) {
-                return response;
-            }
-            throw Error(response.statusText);
-        })
-        .then( response => response.json() )
-        .then( data => {
-            nextURL = data.next;
-            prevURL = data.previous;
-            var thisArray = data.results;
-            outputUL.innerHTML = '';
-            for (var i=0; i<thisArray.length; i++) {
-                displayItem(thisArray[i]);
-            }
-        })
-        .catch( error => console.log('There was an error:', error))
-    }
-},false);
-
-*/

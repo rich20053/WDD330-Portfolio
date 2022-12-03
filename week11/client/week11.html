@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <title>Authentication</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body>
+        <main>
+            <h1>Authentication</h1>
+            Username (email): <input id="username" type="email" placeholder="username@email.com"><br>
+            Password: <input id="password" type="password">
+            <button onclick="authenticate()">Login</button>
+<!--        <ul id="quakeList" ></ul>
+            <button class="backbtn" onclick="goBack()">Back</button>-->
+            <div id="myPosts"></div>
+            <div id="errors" class="errors hidden"></div>
+            
+        </main>
+    </body>
+    <script src="ensemble.js"></script>
+    <style>
+        body {
+            background-color: rgb(118, 253, 253);
+        }
+        .backbtn {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</html>

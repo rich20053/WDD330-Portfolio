@@ -1,0 +1,136 @@
+button {
+    background-color: #047526;
+    color: yellow;
+    border: 3px solid yellow;
+    padding: 5px;
+    margin: 10px;
+    display: inline;
+}
+
+div {
+    display: block;
+}
+
+div p {
+    text-align: left;
+    display: inline;
+}
+
+#evalEveryOut {
+    display: inline;
+}
+
+h2 {
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@keyframes flight {
+    from {
+        bottom: 0px; 
+        left: 0px;   
+        width: 10%;
+    }
+    to {
+        bottom: 300%;
+        left: 150%;
+        width: 50%;
+    }
+  }
+  
+  #starbox {
+     position: relative;
+     /*width: 100%; */
+     height: 400px;
+  }
+  
+  #shipflight {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 0;
+    animation-name: flight;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color:transparent;
+  }
+/*
+$cardfill-color: white;
+$cardedge-color: black;
+$honey-color: gold;
+$honeycomb: goldenrod;
+$honeycomb-face: yellow;
+$heart-face-color: violet;
+
+.playingcard {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+#hex {
+  fill: gold;
+  stroke: goldenrod;
+  stroke-width: 2px;
+}
+
+.hexface {
+  fill: yellow;
+}
+
+.hctext {
+  stroke: black;
+}
+
+.heartface {
+  fill: violet;
+}
+
+.heartcircle {
+  fill: blue;
+  stroke: yellow;
+  stroke-width: 20px;
+}
+
+#heartsymbol {
+  fill: pink;
+  stroke: red;
+  stroke-width: 2px;
+}
+*/
+.viewport {
+  position:relative;
+  width:640px;
+  height:480px;
+  border:1px dashed #000;
+}
+.record {
+  border-radius: 50%;          
+  position:absolute;
+  top:50px;
+  right: 15px;
+  width:300px;
+  height:300px; 
+  border:1px solid #333;
+  -webkit-animation: rotatethis 5s linear 0s infinite;
+  animation: rotatethis 5s linear 0s infinite;
+}
+
+.record img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+@keyframes rotatethis {
+  0% { transform: rotate(0deg);   }
+100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes rotatethis {
+  0% { -webkit-transform: rotate(0deg);   }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+
+  

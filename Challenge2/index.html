@@ -28,6 +28,33 @@
               <th class="colheader" id="aname">Name</th>
               <th class="colheader" id="ateam">Team</th>
               <th class="colheader" id="apos">Position</th>
+              <th class="colheader" id="agms">Games</th>
+              <th class="colheader" id="apts">Pts/Gm</th>
+              <th class="colheader" id="arebs">Reb/Gm</th>
+              <th class="colheader" id="aasts">Asst/Gm</th>
+              <th class="colheader" id="astls">Stl/Gm</th>
+              <th class="colheader" id="ablks">Blks/Gm</th>
+              <th class="colheader index">Index</th>
+            </tr>
+          </table>      
+        </div>
+        <div id="playerdesc">
+          <div id="selbtns">
+            <h3">Selected Player</h3>
+            <button id="addBtn" class="hidden" onclick="addPlayer()">Add Player</button>
+            <button id="delBtn" class="hidden" onclick="deletePlayer()">Delete Player</button>
+          </div>
+          <table id="selplayers" class="playertable">
+            <tr id="selheader">
+              <th class="colheader" id="sname">Name</th>
+              <th class="colheader" id="steam">Team</th>
+              <th class="colheader" id="spos">Position</th>
+              <th class="colheader" id="sgms">Games</th>
+              <th class="colheader" id="spts">Pts/Gm</th>
+              <th class="colheader" id="srebs">Reb/Gm</th>
+              <th class="colheader" id="sasts">Asst/Gm</th>
+              <th class="colheader" id="sstls">Stl/Gm</th>
+              <th class="colheader" id="sblks">Blks/Gm</th>
               <th class="colheader index">Index</th>
             </tr>
           </table>      
@@ -49,12 +76,6 @@
             </tr>
           </table>      
         </div>
-        <article>
-          <h3>Selected Player Stats</h3>
-          <div id="playerdesc">Show Player Detail</div>
-          <button class="hidden" onclick="addPlayer()">Add Player</button>
-          <button class="hidden" onclick="deletePlayer()">Delete Player</button>
-        </article>
       </section>
       <div id="fileOutput"></div>
     </main>

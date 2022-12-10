@@ -77,18 +77,18 @@ const jsonPlayerData = [{"id":20000441,"fname":"Bradley","lname":"Beal","team":"
 
 const availPlayerParent = document.querySelector("#availplayers");
 const myPlayerParent = document.querySelector("#myplayerlist");
-const playerDescParent = document.querySelector("#playerdesc");
+const playerDescParent = document.querySelector("#selplayers");
 
-const playAllStatURL = 'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2021'
+//const playAllStatURL = 'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2021'
 
 //const playStatURL = 'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2021'
 //?key=ea5adf5c3d804637980d5a2154a4ae52';
 //const playStatURL = 'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByPlayer/2021?key=57d85064908b4d1e83fb7c0987aefff3';
 //const playerURL = 'https://api.sportsdata.io/v3/nba/scores/json/Players?key=57d85064908b4d1e83fb7c0987aefff3';
 //const playerURL = 'https://api.sportsdata.io/v3/nba/projections/json/PlayerSeasonProjectionStatsByPlayer/2021/';
-const playerURL = 'https://api.sportsdata.io/v3/nba/scores/json/Players?key=ea5adf5c3d804637980d5a2154a4ae52';
+//const playerURL = 'https://api.sportsdata.io/v3/nba/scores/json/Players?key=ea5adf5c3d804637980d5a2154a4ae52';
 
-let availSection = true;
+//let availSection = true;
 
 class Player {
     constructor(id, fname="", lname="", team="", position="", 
@@ -138,7 +138,7 @@ class Player {
         this.blocks = aPlayer.blocks;        
         this.index = aPlayer.index;        
     }
-
+/*
     displayPlayer(parentElement) {
         const row = document.createElement("tr");
         let item = document.createElement("td");
@@ -174,52 +174,53 @@ class Player {
         })
         parentElement.appendChild(row);
     }
-      
+  */    
     displayStats(parentElement) {
         console.log(this);
-        let item = document.createElement("p");
-        item.innerHTML = `${this.fname} ${this.lname}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Games: ${this.games}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Points: ${this.points}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Points/Game: ${(this.points/this.games).toFixed(2)}`;
-        item.setAttribute("class", "per");
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Rebounds: ${this.rebounds}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Rebounds/Game: ${(this.rebounds/this.games).toFixed(2)}`;
-        item.setAttribute("class", "per");
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Assists: ${this.assists}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Assists/Game: ${(this.assists/this.games).toFixed(2)}`;
-        item.setAttribute("class", "per");
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Steals: ${this.steals}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Steals/Game: ${(this.steals/this.games).toFixed(2)}`;
-        item.setAttribute("class", "per");
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Blocks: ${this.blocks}`;
-        parentElement.appendChild(item);
-        item = document.createElement("p");
-        item.innerHTML = `Blocks/Game: ${(this.blocks/this.games).toFixed(2)}`;
-        item.setAttribute("class", "per");
-        parentElement.appendChild(item);
+        const row = document.createElement("tr");
+        let item = document.createElement("td");
+        item.innerHTML = `${this.lname}, ${this.fname}`;
+        item.setAttribute("class", "name");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${this.team}`;
+        item.setAttribute("class", "team");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${this.position}`;
+        item.setAttribute("class", "position");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${this.games}`;
+        item.setAttribute("class", "games");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${(this.points/this.games).toFixed(2)}`;
+        item.setAttribute("class", "points");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${(this.rebounds/this.games).toFixed(2)}`;
+        item.setAttribute("class", "rebounds");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${(this.assists/this.games).toFixed(2)}`;
+        item.setAttribute("class", "assists");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${(this.steals/this.games).toFixed(2)}`;
+        item.setAttribute("class", "steals");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${(this.blocks/this.games).toFixed(2)}`;
+        item.setAttribute("class", "blocks");
+        row.appendChild(item);
+        item = document.createElement("td");
+        item.innerHTML = `${this.index}`;
+        item.setAttribute("class", "index");
+        row.appendChild(item);
+        parentElement.appendChild(row);
     }
-
+/*
     retrievePlayerStats() {
         debugger;
         let statURL = playStatURL+`/${this.id}?key=ea5adf5c3d804637980d5a2154a4ae52`;
@@ -256,7 +257,22 @@ class Player {
         parentElement.innerHTML = '';
         //debugger;
         this.displayStats(parentElement);
-    };
+    }; 
+
+    clearTable (parentElement) {
+        debugger;
+        if (parentElement == playerDescParent) {
+            var child = parentElement.lastElementChild;
+            // Remove all current players from HTML
+            while (child) {
+                parentElement.removeChild(child);
+                child = parentElement.lastElementChild;
+            }
+            parentElement.innerHTML = '';
+            //debugger;
+            this.displayStats(parentElement);
+        }
+    } */
 
     displayPlayerwStats(parentElement) {
         const row = document.createElement("tr");
@@ -277,23 +293,23 @@ class Player {
         item.setAttribute("class", "games");
         row.appendChild(item);
         item = document.createElement("td");
-        item.innerHTML = `${this.points}`;
+        item.innerHTML = `${(this.points/this.games).toFixed(2)}`;
         item.setAttribute("class", "points");
         row.appendChild(item);
         item = document.createElement("td");
-        item.innerHTML = `${this.rebounds}`;
+        item.innerHTML = `${(this.rebounds/this.games).toFixed(2)}`;
         item.setAttribute("class", "rebounds");
         row.appendChild(item);
         item = document.createElement("td");
-        item.innerHTML = `${this.assists}`;
+        item.innerHTML = `${(this.assists/this.games).toFixed(2)}`;
         item.setAttribute("class", "assists");
         row.appendChild(item);
         item = document.createElement("td");
-        item.innerHTML = `${this.steals}`;
+        item.innerHTML = `${(this.steals/this.games).toFixed(2)}`;
         item.setAttribute("class", "steals");
         row.appendChild(item);
         item = document.createElement("td");
-        item.innerHTML = `${this.blocks}`;
+        item.innerHTML = `${(this.blocks/this.games).toFixed(2)}`;
         item.setAttribute("class", "blocks");
         row.appendChild(item);
         item = document.createElement("td");
@@ -303,20 +319,32 @@ class Player {
         // Listener attached to the item to pull stats
         row.addEventListener('click', () => {
             //debugger;
-            availSection = (parentElement == availPlayerParent);
+            //availSection = (parentElement == availPlayerParent);
+            /*
             let btn = document.getElementsByClassName("hidden");
             console.log(btn);
             let btnLen = btn.length;
             for (let i=0; i<btnLen; i++) {
+                if (btn[])
                 btn[0].classList.remove('hidden');
+            } */
+            let addBtn = document.getElementById("addBtn");
+            let delBtn = document.getElementById("delBtn");
+            if (parentElement == availPlayerParent) {
+                addBtn.classList.remove('hidden');
+                delBtn.classList.add('hidden');
+            }
+            if (parentElement == myPlayerParent) {
+                delBtn.classList.remove('hidden');
+                addBtn.classList.add('hidden');
             }
             removePrevAvailSelected();
             //debugger;
             row.classList.add('selected');
-            this.displayPlayerStats(playerDescParent);
+            //this.clearTable(playerDescParent);
+            this.displayStats(playerDescParent);
         })
         parentElement.appendChild(row);
-
     }
 }
 
@@ -394,13 +422,14 @@ class PlayerList {
                     // Filter display based on filter value
 /*                    if ((displayFilter == "All") ||
                         (displayFilter == "Active" && !this.pList[i].complete) ||
-                        (displayFilter == "Complete" && this.pList[i].complete)) { */
+                        (displayFilter == "Complete" && this.pList[i].complete)) { 
                             if (statFlag) {
                                 this.pList[i].displayPlayerwStats(parentElement);
                             }
                             else {
                                 this.pList[i].displayPlayer(parentElement);
-                            }
+                            } */
+                            this.pList[i].displayPlayerwStats(parentElement);
                             // Count items in displayed list
                             listCount++;
                         //}
@@ -457,6 +486,13 @@ function removePrevAvailSelected() {
     for (let i = 2; i < nodeList.length; i++) {
       nodeList[i].classList.remove('selected');
     }
+    nodeList = playerDescParent.childNodes;
+    console.log(nodeList);
+    //debugger;
+    for (let i = 2; i < nodeList.length; i++) {
+        playerDescParent.removeChild(nodeList[i]);
+        //nodeList[i].classList.remove('selected');
+    }
 }
 
 function viewAvailPlayers(availPlayerArray) {
@@ -506,7 +542,7 @@ function viewAvailPlayers(availPlayerArray) {
 
 function addPlayer() {
     //debugger;
-    if (availSection) {
+    //if (availSection) {
         let thisPlayer = document.getElementsByClassName("selected");
         let thisPlayerIndex = parseInt(thisPlayer[0].lastChild.lastChild.data);
         let selectedPlayer = availPlayers.getPlayer(thisPlayerIndex);
@@ -514,18 +550,18 @@ function addPlayer() {
         newPlayer.copyPlayer(selectedPlayer)
         myPlayers.addPlayer(newPlayer);    
         myPlayers.displayPlayerList(myPlayerParent, true);
-    }
+    //}
 }
 
 function deletePlayer() {
     //debugger;
-    if (!availSection) {
+    //if (!availSection) {
         let thisPlayer = document.getElementsByClassName("selected");
         let thisPlayerIndex = parseInt(thisPlayer[0].lastChild.lastChild.data);
         let selectedPlayer = myPlayers.getPlayer(thisPlayerIndex);
         myPlayers.deletePlayer(selectedPlayer);    
         myPlayers.displayPlayerList(myPlayerParent, true);
-    }
+    //}
 }
 
 //viewAvailPlayers();

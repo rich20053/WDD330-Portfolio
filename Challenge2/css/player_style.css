@@ -48,34 +48,34 @@ th, td {
 }
 
 #availlist {
-    margin: 5px;
+    margin: 15px;
     grid-column: 1/5;
     grid-row: 1/2;
     border: 2px solid brown;
     background-color: #e653ab;
     max-height: 300px;
     overflow: scroll;
-    max-width: 780px;
+    max-width: 800px;
 }
 
 #mylist {
-    margin: 5px;
+    margin: 15px;
     grid-column: 1/5;
     grid-row: 3/5;
     border: 2px solid rgb(16, 6, 16);
     background-color: #e67053;
     max-height: 300px;
     overflow: scroll;
-    max-width: 780px;
+    max-width: 800px;
 }
 
 #playerdesc {
-    margin: 5px;
+    margin: 15px;
     grid-column: 1/5;
     grid-row: 2/3;
     border: 2px solid blue;
     background-color: #53e6c9;
-    max-width: 780px;
+    max-width: 800px;
 }
 
 p, div {
@@ -106,6 +106,11 @@ button {
 }
 
 #selbtns {
+    display: flex;
+    flex-direction: row;
+}
+
+#asearch, #msearch {
     display: flex;
     flex-direction: row;
 }

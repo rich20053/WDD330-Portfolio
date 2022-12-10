@@ -22,18 +22,39 @@
     <main>
       <section id="playerlistpage">
         <div id="availlist">
-          <h3>Available Players</h3>
+          <div id="asearch">
+            <h3>Available Players</h3>
+            <input type="search" id="searchThis"></input>
+            <button onclick="filterPlayer(availPlayers, 'availplayers', 'searchThis')">Find Player</button>
+            <button onclick="location.reload()">Reload List</button>
+          </div>
           <table id="availplayers" class="playertable">
             <tr id="availheader">
-              <th class="colheader" id="aname">Name</th>
-              <th class="colheader" id="ateam">Team</th>
-              <th class="colheader" id="apos">Position</th>
+              <th class="colheader" id="aname">
+                <button onclick="sortbyPlayer(availPlayers, 'availplayers')">Name</button>
+              </th>
+              <th class="colheader" id="ateam">
+                <button onclick="sortbyTeam(availPlayers, 'availplayers')">Team</button>
+              </th>
+              <th class="colheader" id="apos">
+                <button onclick="sortbyPosition(availPlayers, 'availplayers')">Position</button>
+              </th>
               <th class="colheader" id="agms">Games</th>
-              <th class="colheader" id="apts">Pts/Gm</th>
-              <th class="colheader" id="arebs">Reb/Gm</th>
-              <th class="colheader" id="aasts">Asst/Gm</th>
-              <th class="colheader" id="astls">Stl/Gm</th>
-              <th class="colheader" id="ablks">Blks/Gm</th>
+              <th class="colheader" id="apts">
+                <button onclick="sortbyPoints(availPlayers, 'availplayers')">Pts/Gm</button>
+              </th>
+              <th class="colheader" id="arebs">
+                <button onclick="sortbyRebounds(availPlayers, 'availplayers')">Rebs/Gm</button>
+              </th>
+              <th class="colheader" id="aasts">
+                <button onclick="sortbyAssists(availPlayers, 'availplayers')">Asts/Gm</button>
+              </th>
+              <th class="colheader" id="astls">
+                <button onclick="sortbySteals(availPlayers, 'availplayers')">Stls/Gm</button>
+              </th>
+              <th class="colheader" id="ablks">
+                <button onclick="sortbyBlocks(availPlayers, 'availplayers')">Blks/Gm</button>
+              </th>
               <th class="colheader index">Index</th>
             </tr>
           </table>      
@@ -60,18 +81,39 @@
           </table>      
         </div>
         <div id="mylist">
-          <h3>My Player Selections</h3>
+          <div id="msearch">
+            <h3>My Players</h3>
+            <input type="search" id="searchMyPlayer"></input>
+            <button onclick="filterPlayer(myPlayers, 'myplayerlist', 'searchMyPlayer')">Find Player</button>
+            <button onclick="location.reload()">Reload List</button>
+          </div>
           <table id="myplayerlist">
             <tr id="myplayerheader">
-              <th class="colheader" id="pname">Name</th>
-              <th class="colheader" id="pteam">Team</th>
-              <th class="colheader" id="ppos">Position</th>
+              <th class="colheader" id="pname">
+                <button onclick="sortbyPlayer(myPlayers, 'myplayerlist')">Name</button>
+              </th>
+              <th class="colheader" id="pteam">
+                <button onclick="sortbyTeam(myPlayers, 'myplayerlist')">Team</button>
+              </th>
+              <th class="colheader" id="ppos">
+                <button onclick="sortbyPosition(myPlayers, 'myplayerlist')">Position</button>
+              </th>
               <th class="colheader" id="pgms">Games</th>
-              <th class="colheader" id="ppts">Pts/Gm</th>
-              <th class="colheader" id="prebs">Reb/Gm</th>
-              <th class="colheader" id="pasts">Asst/Gm</th>
-              <th class="colheader" id="pstls">Stl/Gm</th>
-              <th class="colheader" id="pblks">Blks/Gm</th>
+              <th class="colheader" id="ppts">
+                <button onclick="sortbyPoints(myPlayers, 'myplayerlist')">Points</button>
+              </th>
+              <th class="colheader" id="prebs">
+                <button onclick="sortbyRebounds(myPlayers, 'myplayerlist')">Rebounds</button>
+              </th>
+              <th class="colheader" id="pasts">
+                <button onclick="sortbyAssists(myPlayers, 'myplayerlist')">Assists</button>
+              </th>
+              <th class="colheader" id="pstls">
+                <button onclick="sortbySteals(myPlayers, 'myplayerlist')">Steals</button>
+              </th>
+              <th class="colheader" id="pblks">
+                <button onclick="sortbyBlocks(myPlayers, 'myplayerlist')">Blocks</button>
+              </th>
               <th class="colheader index">Index</th>
             </tr>
           </table>      

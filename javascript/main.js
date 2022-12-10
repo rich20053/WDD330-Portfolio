@@ -42,6 +42,10 @@ const linklist = [
     {
         label: "Week 11 notes",
         url: "week11/index.html"
+    },
+    {
+        label: "Challenge 2",
+        url: "Challenge2/index.html"
     }
   ]
 

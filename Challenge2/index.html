@@ -23,20 +23,40 @@
       <section id="playerlistpage">
         <div id="availlist">
           <h3>Available Players</h3>
-          <ul id="availplayers" class="playerlist">Show list here
-          </ul>      
+          <table id="availplayers" class="playertable">
+            <tr id="availheader">
+              <th class="colheader" id="aname">Name</th>
+              <th class="colheader" id="ateam">Team</th>
+              <th class="colheader" id="apos">Position</th>
+              <th class="colheader index">Index</th>
+            </tr>
+          </table>      
         </div>
         <div id="mylist">
           <h3>My Player Selections</h3>
-          <ul id="myplayerlist">Show list here
-          </ul>      
+          <table id="myplayerlist">
+            <tr id="myplayerheader">
+              <th class="colheader" id="pname">Name</th>
+              <th class="colheader" id="pteam">Team</th>
+              <th class="colheader" id="ppos">Position</th>
+              <th class="colheader" id="pgms">Games</th>
+              <th class="colheader" id="ppts">Pts/Gm</th>
+              <th class="colheader" id="prebs">Reb/Gm</th>
+              <th class="colheader" id="pasts">Asst/Gm</th>
+              <th class="colheader" id="pstls">Stl/Gm</th>
+              <th class="colheader" id="pblks">Blks/Gm</th>
+              <th class="colheader index">Index</th>
+            </tr>
+          </table>      
         </div>
         <article>
+          <h3>Selected Player Stats</h3>
           <div id="playerdesc">Show Player Detail</div>
           <button class="hidden" onclick="addPlayer()">Add Player</button>
           <button class="hidden" onclick="deletePlayer()">Delete Player</button>
         </article>
       </section>
+      <div id="fileOutput"></div>
     </main>
     <script src="./js/challenge.js"></script>
     <footer>

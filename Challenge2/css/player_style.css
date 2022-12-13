@@ -8,6 +8,8 @@
 body {
     background-color: var(--main-bg-color);
     color: black;
+    max-width: 650px;
+    margin: 0 auto;
     /*
     color: #e67053;
     color: #e653ab;
@@ -21,12 +23,36 @@ h1, h2, h3 {
     padding: 10px;
 }
 
-h3 {
-    margin: 10px;
+header h1 {
+    display: inline;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+h1, h3 {
+    margin: 0;
 }
 
 li {
     list-style: none;
+}
+
+p {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    margin: 10px;
+} 
+
+div {
+    margin: 0;
+}
+
+button {
+    margin: 10px;
+    display: inline;
 }
 
 table {
@@ -44,18 +70,13 @@ th, td {
     margin: 0;
 }
 
-#availheader {
-    position: sticky;
-}
-
 #playerlistpage {
     display: flex;
     flex-direction: column;
-    /*
-    display: grid;
-    grid-template-columns: 4;
-    grid-template-rows: 2;
-    */
+}
+
+#availheader {
+    position: sticky;
 }
 
 #availlist {
@@ -70,37 +91,6 @@ th, td {
     margin: 0;
 }
 
-#mylist {
-    margin: 0;
-    grid-column: 1/5;
-    grid-row: 3/5;
-    border: 2px solid rgb(16, 6, 16);
-    background-color: var(--myplayer-color);
-    max-height: 250px;
-    overflow: scroll;
-    max-width: 800px
-}
-
-/*
-th button {
-    margin: 0;
-    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
-}
-
-#myplayerlist button {
-    background-color: var(--myplayer-color);
-    color: black;
-    border: none;
-    font-weight: bold;
-}
-
-#availplayers button {
-    background-color: var(--avail-color);
-    color: black;
-    border: none;
-    font-weight: bold;
-}*/
-
 #playerdesc {
     margin: 0;
     grid-column: 1/5;
@@ -111,18 +101,15 @@ th button {
     max-width: 800px;
 }
 
-p {
-    font-family: "Raleway", Arial, Helvetica, sans-serif;
-    margin: 10px;
-} 
-
-div {
+#mylist {
     margin: 0;
-}
-
-button {
-    margin: 10px;
-    display: inline;
+    grid-column: 1/5;
+    grid-row: 3/5;
+    border: 2px solid rgb(16, 6, 16);
+    background-color: var(--myplayer-color);
+    max-height: 250px;
+    overflow: scroll;
+    max-width: 800px
 }
 
 .hidden {
@@ -147,37 +134,30 @@ button {
     flex-direction: row;
 }
 
-#asearch, #msearch {
-    display: flex;
-    flex-direction: row;
-}
-
-svg {
-    width: 60px;
-    height: 60px;
-}
-
-header h1, svg {
-    display: inline;
-}
-
-header {
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-}
-
-h1, h3 {
-    margin: 0;
-}
-
-#asearch, #msearch {
-    height: 50px;
-}
-
 input {
     height: 30px;
     margin: 10px;
+}
+
+#asearch, #msearch {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+
+#asearch img,
+#msearch img {
+    width: 15px;
+}
+
+#asearch button,
+#msearch button {
+    margin-left: 0;
+}
+
+#asearch input,
+#msearch input {
+    margin-right: 0;
 }
 
 .ball {
@@ -211,20 +191,24 @@ input {
 .table2-sortable th {
         cursor: pointer;
 }
+
 .table-sortable .th-sort-asc::after,
 .table2-sortable .th2-sort-asc::after {
         content: "\25b4";
 }
+
 .table-sortable .th-sort-desc::after,
 .table2-sortable .th2-sort-desc::after {
         content: "\25be";
 }
+
 .table-sortable .th-sort-asc::after,
 .table-sortable .th-sort-desc::after,
 .table2-sortable .th2-sort-asc::after,
 .table2-sortable .th2-sort-desc::after {
         margin-left: 5px;
 }
+
 .table-sortable .th-sort-asc,
 .table-sortable .th-sort-desc,
 .table2-sortable .th2-sort-asc,
@@ -232,3 +216,17 @@ input {
         font-weight: bold;
     background: rgba(0,0,0,0.1);
 }
+
+/*Added to handle phone screens*/
+@media screen and (max-width: 600px) { 
+    /* beginning of media query */
+    #playerdesc {
+        overflow: scroll;
+    }
+
+    #mylist h3 {
+        font-size: 12px;
+    }
+
+}
+    

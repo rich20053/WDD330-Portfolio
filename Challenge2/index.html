@@ -12,17 +12,12 @@
   <body>
     <header>
       <div class="ball">
-      <!--
-        <svg viewBox="5px 5px 60px 60px">
-            <circle cx="30px" cy="30px" r="27px" fill="orange"/>
-        </svg>  -->
         <img src="./images/basketball.png" alt="basketball">
       </div>
       <div>
         <h1>PlayerView</h1>
         <p>Select your perfect fantasy team!</p>
-      </div>
-      
+      </div>      
     </header>
     <main>
       <section id="playerlistpage">
@@ -30,7 +25,7 @@
           <div id="asearch">
             <h3>Available Players</h3>
             <input type="search" id="searchThis"></input>
-            <button onclick="filterPlayer(availPlayers, 'availbody', 'searchThis')">Find Player</button>
+            <button onclick="filterPlayer(availPlayers, 'availbody', 'searchThis')"><img src="./images/search.png"></button>
             <button onclick="location.reload()">Reload List</button>
           </div>
           <table class="table table-sortable">
@@ -61,16 +56,16 @@
           </div>
           <table id="selplayers" class="playertable">
             <tr id="selheader">
-              <th class="colheader" id="sname">Name</th>
-              <th class="colheader" id="steam">Team</th>
-              <th class="colheader" id="spos">Position</th>
-              <th class="colheader" id="sgms">Games</th>
-              <th class="colheader" id="spts">Pts/Gm</th>
-              <th class="colheader" id="srebs">Reb/Gm</th>
-              <th class="colheader" id="sasts">Asst/Gm</th>
-              <th class="colheader" id="sstls">Stl/Gm</th>
-              <th class="colheader" id="sblks">Blks/Gm</th>
-              <th class="colheader index">Index</th>
+              <th>Name</th>
+              <th>Team</th>
+              <th>Position</th>
+              <th>Games</th>
+              <th>Pts/Gm</th>
+              <th>Reb/Gm</th>
+              <th>Asst/Gm</th>
+              <th>Stl/Gm</th>
+              <th>Blks/Gm</th>
+              <th class="index">Index</th>
             </tr>
           </table>      
         </div>
@@ -78,7 +73,7 @@
           <div id="msearch">
             <h3>My Selected Players</h3>
             <input type="search" id="searchMyPlayer"></input>
-            <button onclick="filterPlayer(myPlayers, 'myplayerbody', 'searchMyPlayer')">Find Player</button>
+            <button onclick="filterPlayer(myPlayers, 'myplayerbody', 'searchMyPlayer')"><img src="./images/search.png"></button>
             <button onclick="location.reload()">Reload List</button>
           </div>
           <table class="table table2-sortable">

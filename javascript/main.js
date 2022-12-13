@@ -45,7 +45,7 @@ const linklist = [
     },
     {
         label: "Challenge 2",
-        url: "Challenge2/index.html"
+        url: "Challenge2b/index.html"
     }
   ]
 

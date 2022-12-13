@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 Portfolio - Challenge 2 - Player View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Raleway&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="./css/player_style.css"> 
+  </head> 
+  <body>
+    <header>
+      <div id="bball" class="ball">
+        <img src="./images/basketball.png" alt="basketball">
+      </div>
+      <div>
+        <h1>PlayerView</h1>
+        <p>Select your perfect fantasy team!</p>
+      </div>      
+    </header>
+    <main>
+      <section id="playerlistpage">
+        <div id="availlist">
+          <div id="asearch">
+            <h3>Available Players</h3>
+            <input type="search" id="searchThis"></input>
+            <button onclick="filterPlayer(availPlayers, 'availbody', 'searchThis')"><img src="./images/search.png"></button>
+            <button onclick="location.reload()">Reload List</button>
+          </div>
+          <table class="table table-sortable">
+            <thead>
+            <tr>
+              <th>Player</th>
+              <th>Team</th>
+              <th>Pos</th>
+              <th>Games</th>
+              <th>Points/Gm</th>
+              <th>Rebs/Gm</th>
+              <th>Asts/Gm</th>
+              <th>Stls/Gm</th>
+              <th>Blks/Gm</th>
+              <th class="index">Index</th>
+            </tr>
+            </thead>
+            <tbody id="availbody">
+
+            </tbody>
+          </table>      
+        </div>
+        <div id="playerdesc">
+          <div id="selbtns">
+            <h3>Highlighted Player</h3>
+            <button id="addBtn" class="hidden" onclick="addPlayer()">Add Player to My List</button>
+            <button id="delBtn" class="hidden" onclick="deletePlayer()">Remove Player from My List</button>
+          </div>
+          <table class="playertable">
+            <thead>
+              <tr id="selheader">
+                <th>Name</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Games</th>
+                <th>Pts/Gm</th>
+                <th>Reb/Gm</th>
+                <th>Asst/Gm</th>
+                <th>Stl/Gm</th>
+                <th>Blks/Gm</th>
+                <th class="index">Index</th>
+              </tr>
+              </thead>
+              <tbody id="selplayers">
+
+              </tbody>
+          </table>      
+        </div>
+        <div id="mylist">
+          <div id="msearch">
+            <h3>My Selected Players</h3>
+            <input type="search" id="searchMyPlayer"></input>
+            <button onclick="filterPlayer(myPlayers, 'myplayerbody', 'searchMyPlayer')"><img src="./images/search.png"></button>
+            <button onclick="location.reload()">Reload List</button>
+          </div>
+          <table class="table table2-sortable">
+            <thead>
+            <tr>
+              <th>Player</th>
+              <th>Team</th>
+              <th>Pos</th>
+              <th>Games</th>
+              <th>Pts/Gm</th>
+              <th>Rebs/Gm</th>
+              <th>Asts/Gm</th>
+              <th>Stls/Gm</th>
+              <th>Blks/Gm</th>
+              <th class="index">Index</th>
+            </tr>
+            </thead>
+            <tbody id="myplayerbody">
+
+            </tbody>
+          </table>      
+        </div>
+      </section>
+      <div id="fileOutput"></div>
+    </main>
+    <script src="./json/Player.json"></script>
+    <script src="./js/challenge.js"></script>
+    <footer>
+      <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Home</a></p>
+      <p id="datemodified"></p><br>
+    </footer>
+    <script src="../javascript/this-year.js"></script>
+    <script src="../javascript/last-modified.js"></script>
+    </body>
+</html>

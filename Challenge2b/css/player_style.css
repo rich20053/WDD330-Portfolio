@@ -1,0 +1,257 @@
+:root {
+    --main-bg-color: #53e6c9;
+    --avail-color: #e653ab;
+    --select-color: #abe653;
+    --myplayer-color: #e67053;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: black;
+    max-width: 650px;
+    margin: 0 auto;
+    /*
+    color: #e67053;
+    color: #e653ab;
+    color: #abe653;
+    color: #53e6c9;
+    */
+}
+
+h1, h2, h3 {
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
+header h1 {
+    display: inline;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    margin: 10px;
+} 
+
+div {
+    margin: 0;
+}
+
+button {
+    margin: 10px;
+    display: inline;
+}
+
+table {
+    margin: 10px;
+    position: relative;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 3px;
+    margin: 0;
+}
+
+#playerlistpage {
+    display: flex;
+    flex-direction: column;
+}
+
+#availheader {
+    position: sticky;
+}
+
+#availlist {
+    margin: 15px;
+    grid-column: 1/5;
+    grid-row: 1/2;
+    border: 2px solid brown;
+    background-color: var(--avail-color);
+    max-height: 250px;
+    overflow: scroll;
+    max-width: 800px;
+    margin: 0;
+}
+
+#playerdesc {
+    margin: 0;
+    grid-column: 1/5;
+    grid-row: 2/3;
+    border: 2px solid darkgreen;
+    color: darkgreen;
+    background-color: var(--select-color);
+    max-width: 800px;
+}
+
+#mylist {
+    margin: 0;
+    grid-column: 1/5;
+    grid-row: 3/5;
+    border: 2px solid rgb(16, 6, 16);
+    background-color: var(--myplayer-color);
+    max-height: 250px;
+    overflow: scroll;
+    max-width: 800px
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: black;
+    color: #abe653;
+}
+
+.index {
+    display: none;
+}
+
+.per {
+    display: inline;
+}
+
+#selbtns {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    height: 30px;
+    margin: 10px;
+}
+
+#asearch, #msearch {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+
+#asearch img,
+#msearch img {
+    width: 15px;
+}
+
+#asearch button,
+#msearch button {
+    margin-left: 0;
+}
+
+#asearch input,
+#msearch input {
+    margin-right: 0;
+}
+
+.ball {
+    border-radius: 50%;          
+    /*position:absolute;*/
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 60px; 
+    /*border:1px solid #333; */
+    -webkit-animation: rotatethis 5s linear 0s infinite;
+    animation: rotatethis 5s linear 0s infinite;
+    /*animation: bounce 10s ease-in infinite;*/
+}
+  
+.ball img {
+    width: 100%;
+    border-radius: 50%;
+}
+  
+@keyframes rotatethis {
+    0% { transform: rotate(0deg);   }
+  100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotatethis {
+    0% { -webkit-transform: rotate(0deg);   }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0% {transform: translate3d(0, 0, 0) rotate(0deg);}
+   5% {transform: translate3d(20px, 10px, 0) rotate(30deg);}
+   10% {transform: translate3d(40px, 20px, 0) rotate(60deg);}
+   15% {transform: translate3d(60px, 10px, 0) rotate(90deg);}
+   20% {transform: translate3d(80px, 0, 0) rotate(120deg);}
+   25% {transform: translate3d(100px, 10px, 0) rotate(150deg);}
+   30% {transform: translate3d(120px, 20px, 0) rotate(180deg);}
+   35% {transform: translate3d(140px, 10px, 0) rotate(210deg);}
+   40% {transform: translate3d(160px, 0, 0) rotate(240deg);}
+   45% {transform: translate3d(180px, 10px, 0) rotate(270deg);}
+   50% {transform: translate3d(200px, 20px, 0) rotate(300deg);}
+   55% {transform: translate3d(180px, 10px, 0) rotate(270deg);}
+   60% {transform: translate3d(160px, 0, 0) rotate(240deg);}
+   65% {transform: translate3d(140px, 10px, 0) rotate(210deg);}
+   70% {transform: translate3d(120px, 20px, 0) rotate(180deg);}
+   75% {transform: translate3d(100px, 10px, 0) rotate(150deg);}
+   80% {transform: translate3d(80px, 0, 0) rotate(120deg);}
+   85% {transform: translate3d(60px, 10px, 0) rotate(90deg);}
+   90% {transform: translate3d(40px, 20px, 0) rotate(60deg);}
+   95% {transform: translate3d(20px, 10px, 0) rotate(30deg);}
+   100% {transform: translate3d(0px, 0, 0) rotate(0deg);}
+}
+   
+.table-sortable th,
+.table2-sortable th {
+        cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after,
+.table2-sortable .th2-sort-asc::after {
+        content: "\25b4";
+}
+
+.table-sortable .th-sort-desc::after,
+.table2-sortable .th2-sort-desc::after {
+        content: "\25be";
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after,
+.table2-sortable .th2-sort-asc::after,
+.table2-sortable .th2-sort-desc::after {
+        margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc,
+.table2-sortable .th2-sort-asc,
+.table2-sortable .th2-sort-desc {
+        font-weight: bold;
+    background: rgba(0,0,0,0.1);
+}
+
+/*Added to handle phone screens*/
+@media screen and (max-width: 600px) { 
+    /* beginning of media query */
+    #playerdesc {
+        overflow: scroll;
+    }
+
+    #mylist h3 {
+        font-size: 12px;
+    }
+
+}
+    

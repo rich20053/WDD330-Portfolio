@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 Portfolio - Challenge 2 - Player View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Raleway&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="./css/player_style.css"> 
+    <style>
+        .table-sortable th {
+            cursor: pointer;
+        }
+        .table-sortable .th-sort-asc::after {
+            content: "\25b4";
+        }
+        .table-sortable .th-sort-desc::after {
+            content: "\25be";
+        }
+        .table-sortable .th-sort-asc::after,
+        .table-sortable .th-sort-desc::after {
+            margin-left: 5px;
+        }
+        .table-sortable .th-sort-asc,
+        .table-sortable .th-sort-desc {
+            font-weight: bold;
+            background: rgba(0,0,0,0.1);
+        }
+
+    </style>
+  </head> 
+  <body>
+    <table class="table table-sortable">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Team</th>
+                <th>Pos</th>
+                <th>Games</th>
+                <th>Points/Gm</th>
+                <th>Rebs/Gm</th>
+                <th>Asts/Gm</th>
+                <th>Stls/Gm</th>
+                <th>Blks/Gm</th>
+                <th>Index</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</th>
+                <td>1</th>
+                <td>1</th>
+                <td>1</th>
+                <td>1/Gm</th>
+                <td>1/Gm</th>
+                <td>1/Gm</th>
+                <td>1/Gm</th>
+                <td>1/Gm</th>
+                <td>1</th>
+              </tr>
+              <tr>
+                <td>7</th>
+                <td>7</th>
+                <td>5</th>
+                <td>5</th>
+                <td>3/Gm</th>
+                <td>9/Gm</th>
+                <td>11/Gm</th>
+                <td>7/Gm</th>
+                <td>7/Gm</th>
+                <td>8</th>
+              </tr>
+              <tr>
+                <td>5</th>
+                <td>8</th>
+                <td>2</th>
+                <td>7</th>
+                <td>9/Gm</th>
+                <td>3/Gm</th>
+                <td>4/Gm</th>
+                <td>9/Gm</th>
+                <td>2/Gm</th>
+                <td>4</th>
+              </tr>
+        </tbody>
+    </table>
+    <script>
+        function sortTab(table, column, asc=true) {
+            //debugger;
+            const dirModifier = asc ? 1 : -1;
+            const tBody = table.tBodies[0];
+            const rows = Array.from(tBody.querySelectorAll("tr"));
+
+            const sortedRows = rows.sort((a,b) => {
+                const aColText = a.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+                const bColText = b.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+
+                return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+            });
+
+            while (tBody.firstChild) {
+                tBody.removeChild(tBody.firstChild);
+            }
+
+            tBody.append(...sortedRows);
+
+            table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+            table.querySelector(`th:nth-child(${column+1})`).classList.toggle("th-sort-asc", asc);
+            table.querySelector(`th:nth-child(${column+1})`).classList.toggle("th-sort-desc", !asc);
+        }
+        //debugger;
+        document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+            headerCell.addEventListener("click", () => {
+                const tableElement = headerCell.parentElement.parentElement.parentElement;
+                const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+                const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+                sortTab(tableElement, headerIndex, !currentIsAscending);
+            })
+        })
+    </script>
+  </body> 
+</html>
+

@@ -1,5 +1,12 @@
+:root {
+    --main-bg-color: #53e6c9;
+    --avail-color: #e653ab;
+    --select-color: #abe653;
+    --myplayer-color: #e67053;
+}
+
 body {
-    background-color: #abe653;
+    background-color: var(--main-bg-color);
     color: black;
     /*
     color: #e67053;
@@ -42,9 +49,13 @@ th, td {
 }
 
 #playerlistpage {
+    display: flex;
+    flex-direction: column;
+    /*
     display: grid;
     grid-template-columns: 4;
     grid-template-rows: 2;
+    */
 }
 
 #availlist {
@@ -52,36 +63,62 @@ th, td {
     grid-column: 1/5;
     grid-row: 1/2;
     border: 2px solid brown;
-    background-color: #e653ab;
-    max-height: 300px;
+    background-color: var(--avail-color);
+    max-height: 250px;
     overflow: scroll;
     max-width: 800px;
+    margin: 0;
 }
 
 #mylist {
-    margin: 15px;
+    margin: 0;
     grid-column: 1/5;
     grid-row: 3/5;
     border: 2px solid rgb(16, 6, 16);
-    background-color: #e67053;
-    max-height: 300px;
+    background-color: var(--myplayer-color);
+    max-height: 250px;
     overflow: scroll;
-    max-width: 800px;
+    max-width: 800px
 }
+
+/*
+th button {
+    margin: 0;
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+}
+
+#myplayerlist button {
+    background-color: var(--myplayer-color);
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+#availplayers button {
+    background-color: var(--avail-color);
+    color: black;
+    border: none;
+    font-weight: bold;
+}*/
 
 #playerdesc {
-    margin: 15px;
+    margin: 0;
     grid-column: 1/5;
     grid-row: 2/3;
-    border: 2px solid blue;
-    background-color: #53e6c9;
+    border: 2px solid darkgreen;
+    color: darkgreen;
+    background-color: var(--select-color);
     max-width: 800px;
 }
 
-p, div {
+p {
     font-family: "Raleway", Arial, Helvetica, sans-serif;
     margin: 10px;
 } 
+
+div {
+    margin: 0;
+}
 
 button {
     margin: 10px;
@@ -115,3 +152,83 @@ button {
     flex-direction: row;
 }
 
+svg {
+    width: 60px;
+    height: 60px;
+}
+
+header h1, svg {
+    display: inline;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+#asearch, #msearch {
+    height: 50px;
+}
+
+input {
+    height: 30px;
+    margin: 10px;
+}
+
+.ball {
+    border-radius: 50%;          
+    /*position:absolute;*/
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 60px; 
+    /*border:1px solid #333; */
+    -webkit-animation: rotatethis 5s linear 0s infinite;
+    animation: rotatethis 5s linear 0s infinite;
+}
+  
+.ball img {
+    width: 100%;
+    border-radius: 50%;
+}
+  
+@keyframes rotatethis {
+    0% { transform: rotate(0deg);   }
+  100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotatethis {
+    0% { -webkit-transform: rotate(0deg);   }
+  100% { -webkit-transform: rotate(360deg); }
+}
+  
+.table-sortable th,
+.table2-sortable th {
+        cursor: pointer;
+}
+.table-sortable .th-sort-asc::after,
+.table2-sortable .th2-sort-asc::after {
+        content: "\25b4";
+}
+.table-sortable .th-sort-desc::after,
+.table2-sortable .th2-sort-desc::after {
+        content: "\25be";
+}
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after,
+.table2-sortable .th2-sort-asc::after,
+.table2-sortable .th2-sort-desc::after {
+        margin-left: 5px;
+}
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc,
+.table2-sortable .th2-sort-asc,
+.table2-sortable .th2-sort-desc {
+        font-weight: bold;
+    background: rgba(0,0,0,0.1);
+}

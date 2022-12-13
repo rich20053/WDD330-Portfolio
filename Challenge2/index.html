@@ -11,13 +11,18 @@
   </head> 
   <body>
     <header>
-      <div id="siteicon">
-
+      <div class="ball">
+      <!--
+        <svg viewBox="5px 5px 60px 60px">
+            <circle cx="30px" cy="30px" r="27px" fill="orange"/>
+        </svg>  -->
+        <img src="./images/basketball.png" alt="basketball">
       </div>
-      <h1>PlayerView</h1>
-      <nav>
-
-      </nav>
+      <div>
+        <h1>PlayerView</h1>
+        <p>Select your perfect fantasy team!</p>
+      </div>
+      
     </header>
     <main>
       <section id="playerlistpage">
@@ -25,45 +30,34 @@
           <div id="asearch">
             <h3>Available Players</h3>
             <input type="search" id="searchThis"></input>
-            <button onclick="filterPlayer(availPlayers, 'availplayers', 'searchThis')">Find Player</button>
+            <button onclick="filterPlayer(availPlayers, 'availbody', 'searchThis')">Find Player</button>
             <button onclick="location.reload()">Reload List</button>
           </div>
-          <table id="availplayers" class="playertable">
-            <tr id="availheader">
-              <th class="colheader" id="aname">
-                <button onclick="sortbyPlayer(availPlayers, 'availplayers')">Name</button>
-              </th>
-              <th class="colheader" id="ateam">
-                <button onclick="sortbyTeam(availPlayers, 'availplayers')">Team</button>
-              </th>
-              <th class="colheader" id="apos">
-                <button onclick="sortbyPosition(availPlayers, 'availplayers')">Position</button>
-              </th>
-              <th class="colheader" id="agms">Games</th>
-              <th class="colheader" id="apts">
-                <button onclick="sortbyPoints(availPlayers, 'availplayers')">Pts/Gm</button>
-              </th>
-              <th class="colheader" id="arebs">
-                <button onclick="sortbyRebounds(availPlayers, 'availplayers')">Rebs/Gm</button>
-              </th>
-              <th class="colheader" id="aasts">
-                <button onclick="sortbyAssists(availPlayers, 'availplayers')">Asts/Gm</button>
-              </th>
-              <th class="colheader" id="astls">
-                <button onclick="sortbySteals(availPlayers, 'availplayers')">Stls/Gm</button>
-              </th>
-              <th class="colheader" id="ablks">
-                <button onclick="sortbyBlocks(availPlayers, 'availplayers')">Blks/Gm</button>
-              </th>
-              <th class="colheader index">Index</th>
+          <table class="table table-sortable">
+            <thead>
+            <tr>
+              <th>Player</th>
+              <th>Team</th>
+              <th>Pos</th>
+              <th>Games</th>
+              <th>Points/Gm</th>
+              <th>Rebs/Gm</th>
+              <th>Asts/Gm</th>
+              <th>Stls/Gm</th>
+              <th>Blks/Gm</th>
+              <th class="index">Index</th>
             </tr>
+            </thead>
+            <tbody id="availbody">
+
+            </tbody>
           </table>      
         </div>
         <div id="playerdesc">
           <div id="selbtns">
-            <h3">Selected Player</h3>
-            <button id="addBtn" class="hidden" onclick="addPlayer()">Add Player</button>
-            <button id="delBtn" class="hidden" onclick="deletePlayer()">Delete Player</button>
+            <h3>Highlighted Player</h3>
+            <button id="addBtn" class="hidden" onclick="addPlayer()">Add Player to My List</button>
+            <button id="delBtn" class="hidden" onclick="deletePlayer()">Remove Player from My List</button>
           </div>
           <table id="selplayers" class="playertable">
             <tr id="selheader">
@@ -82,45 +76,35 @@
         </div>
         <div id="mylist">
           <div id="msearch">
-            <h3>My Players</h3>
+            <h3>My Selected Players</h3>
             <input type="search" id="searchMyPlayer"></input>
-            <button onclick="filterPlayer(myPlayers, 'myplayerlist', 'searchMyPlayer')">Find Player</button>
+            <button onclick="filterPlayer(myPlayers, 'myplayerbody', 'searchMyPlayer')">Find Player</button>
             <button onclick="location.reload()">Reload List</button>
           </div>
-          <table id="myplayerlist">
-            <tr id="myplayerheader">
-              <th class="colheader" id="pname">
-                <button onclick="sortbyPlayer(myPlayers, 'myplayerlist')">Name</button>
-              </th>
-              <th class="colheader" id="pteam">
-                <button onclick="sortbyTeam(myPlayers, 'myplayerlist')">Team</button>
-              </th>
-              <th class="colheader" id="ppos">
-                <button onclick="sortbyPosition(myPlayers, 'myplayerlist')">Position</button>
-              </th>
-              <th class="colheader" id="pgms">Games</th>
-              <th class="colheader" id="ppts">
-                <button onclick="sortbyPoints(myPlayers, 'myplayerlist')">Points</button>
-              </th>
-              <th class="colheader" id="prebs">
-                <button onclick="sortbyRebounds(myPlayers, 'myplayerlist')">Rebounds</button>
-              </th>
-              <th class="colheader" id="pasts">
-                <button onclick="sortbyAssists(myPlayers, 'myplayerlist')">Assists</button>
-              </th>
-              <th class="colheader" id="pstls">
-                <button onclick="sortbySteals(myPlayers, 'myplayerlist')">Steals</button>
-              </th>
-              <th class="colheader" id="pblks">
-                <button onclick="sortbyBlocks(myPlayers, 'myplayerlist')">Blocks</button>
-              </th>
-              <th class="colheader index">Index</th>
+          <table class="table table2-sortable">
+            <thead>
+            <tr>
+              <th>Player</th>
+              <th>Team</th>
+              <th>Pos</th>
+              <th>Games</th>
+              <th>Pts/Gm</th>
+              <th>Rebs/Gm</th>
+              <th>Asts/Gm</th>
+              <th>Stls/Gm</th>
+              <th>Blks/Gm</th>
+              <th class="index">Index</th>
             </tr>
+            </thead>
+            <tbody id="myplayerbody">
+
+            </tbody>
           </table>      
         </div>
       </section>
       <div id="fileOutput"></div>
     </main>
+    <script src="./json/Player.json"></script>
     <script src="./js/challenge.js"></script>
     <footer>
       <p>&copy; <span id="thisyear"></span> | Mark Richmond | Utah | <a href="../index.html">Home</a></p>

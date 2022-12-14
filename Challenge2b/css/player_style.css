@@ -161,6 +161,7 @@ input {
 }
 
 .ball {
+    padding: 5px;
     border-radius: 50%;          
     /*position:absolute;*/
     top: 0px;
@@ -191,23 +192,23 @@ input {
 @keyframes bounce {
     0% {transform: translate3d(0, 0, 0) rotate(0deg);}
    5% {transform: translate3d(20px, 10px, 0) rotate(30deg);}
-   10% {transform: translate3d(40px, 20px, 0) rotate(60deg);}
+   10% {transform: translate3d(40px, 18px, 0) rotate(60deg);}
    15% {transform: translate3d(60px, 10px, 0) rotate(90deg);}
-   20% {transform: translate3d(80px, 0, 0) rotate(120deg);}
+   20% {transform: translate3d(80px, 3px, 0) rotate(120deg);}
    25% {transform: translate3d(100px, 10px, 0) rotate(150deg);}
-   30% {transform: translate3d(120px, 20px, 0) rotate(180deg);}
+   30% {transform: translate3d(120px, 18px, 0) rotate(180deg);}
    35% {transform: translate3d(140px, 10px, 0) rotate(210deg);}
-   40% {transform: translate3d(160px, 0, 0) rotate(240deg);}
+   40% {transform: translate3d(160px, 3px, 0) rotate(240deg);}
    45% {transform: translate3d(180px, 10px, 0) rotate(270deg);}
-   50% {transform: translate3d(200px, 20px, 0) rotate(300deg);}
+   50% {transform: translate3d(200px, 18px, 0) rotate(300deg);}
    55% {transform: translate3d(180px, 10px, 0) rotate(270deg);}
-   60% {transform: translate3d(160px, 0, 0) rotate(240deg);}
+   60% {transform: translate3d(160px, 3px, 0) rotate(240deg);}
    65% {transform: translate3d(140px, 10px, 0) rotate(210deg);}
-   70% {transform: translate3d(120px, 20px, 0) rotate(180deg);}
+   70% {transform: translate3d(120px, 18px, 0) rotate(180deg);}
    75% {transform: translate3d(100px, 10px, 0) rotate(150deg);}
-   80% {transform: translate3d(80px, 0, 0) rotate(120deg);}
+   80% {transform: translate3d(80px, 3px, 0) rotate(120deg);}
    85% {transform: translate3d(60px, 10px, 0) rotate(90deg);}
-   90% {transform: translate3d(40px, 20px, 0) rotate(60deg);}
+   90% {transform: translate3d(40px, 18px, 0) rotate(60deg);}
    95% {transform: translate3d(20px, 10px, 0) rotate(30deg);}
    100% {transform: translate3d(0px, 0, 0) rotate(0deg);}
 }

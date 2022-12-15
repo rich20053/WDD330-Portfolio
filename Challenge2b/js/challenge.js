@@ -284,6 +284,7 @@ class PlayerList {
             row.appendChild(item);
             parentElement.append(row);
         }
+        searchStr = '';
         // Save current list to localStorage
         if (parentElement == myPlayerParent) {
             let myJSON = JSON.stringify(this.pList);   
@@ -348,13 +349,12 @@ function addPlayer() {
     newPlayer.copyPlayer(selectedPlayer);
     myPlayers.addPlayer(newPlayer);
     myPlayers.displayPlayerList(myPlayerParent);
-    //document.getElementById("bball").style.animation = "";    
     document.getElementById("bball").style.animation = "bounce 7s ease-in 1"; 
-    setTimeout(myWaitFunction, 7000);
     clearSelectedPlayer();
     let addBtn = document.getElementById("addBtn");
     addBtn.classList.add('hidden');
     removePrevSelected();
+    setTimeout(myWaitFunction, 7000);
 }
 
 function myWaitFunction() {
@@ -436,20 +436,6 @@ function sortTab(table, column, asc=true, tblnbr) {
     }
 }
 
-// Filter the player list by input value
-// list = the list to filter
-// parentID = parent element where the list will be displayed
-// inputElem = element that holds the search string
-function filterPlayer(list, parentID, inputElem) {
-    //debugger;
-    searchStr = document.getElementById(inputElem).value;
-    //console.log(`input? ${document.getElementById(inputElem).value}`);
-    //console.log(searchStr);
-    parentElement = document.getElementById(parentID);
-    list.displayPlayerList(parentElement);
-}
-
-
 // Set up sorting listener for each heading in the avail list
 document.querySelectorAll(".table-sortable th").forEach(headerCell => {
     headerCell.addEventListener("click", () => {
@@ -470,6 +456,20 @@ document.querySelectorAll(".table2-sortable th").forEach(headerCell => {
         sortTab(tableElement, headerIndex, !currentIsAscending, 2);
     })
 })
+
+// Filter the player list by input value
+// list = the list to filter
+// parentID = parent element where the list will be displayed
+// inputElem = element that holds the search string
+function filterPlayer(list, parentID, inputElem) {
+    //debugger;
+    searchStr = document.getElementById(inputElem).value;
+    //console.log(`input? ${document.getElementById(inputElem).value}`);
+    //console.log(searchStr);
+    parentElement = document.getElementById(parentID);
+    list.displayPlayerList(parentElement);
+    document.getElementById(inputElem).value = "";
+}
 
 // Create List of available players
 let availPlayers = new PlayerList("availplayerlist");
